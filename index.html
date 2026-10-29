@@ -148,7 +148,7 @@ $('file').onchange=async e=>{
 };
 function matrix(bs){const m=$('mat');m.innerHTML='';
   const bar=document.createElement('p');
-  [['+ วิชา (แถว)',newSub],['✎ หัวคอลัมน์',editCols]].forEach(([l,f])=>{const b=document.createElement('button');b.textContent=l;b.onclick=f;bar.append(b,' ')});m.appendChild(bar);
+  [['+ วิชา (แถว)',newSub],['✎ หัวคอลัมน์',editCols],['📥 ข้อสอบสำเร็จรูป',webQuizzes]].forEach(([l,f])=>{const b=document.createElement('button');b.textContent=l;b.onclick=f;bar.append(b,' ')});m.appendChild(bar);
   if(!subs.length){m.insertAdjacentHTML('beforeend','<div class="empty">กด “+ วิชา (แถว)” เพื่อสร้างแถวของตาราง</div>');return}
   const t=document.createElement('table');t.className='mt';
   const hr=t.insertRow();hr.appendChild(document.createElement('th'));types.forEach(x=>{const h=document.createElement('th');h.textContent=x;hr.appendChild(h)});
@@ -168,6 +168,13 @@ $('title').onclick=()=>{if($('shelf').style.display==='none')return;const r=prom
 let qz=[];try{qz=JSON.parse(localStorage.getItem('qz')||'[]')}catch(e){}
 const saveQz=()=>ls('qz',JSON.stringify(qz));
 let Q=null;
+async function webQuizzes(){try{const idx=await(await fetch('quizzes.json',{cache:'no-store'})).json();
+  const a=prompt('เลือกแบบทดสอบที่จะเพิ่ม (พิมพ์เลข)\n'+idx.map((x,i)=>(i+1)+'. '+x.title).join('\n'));const x=idx[(+a)-1];if(!x)return;
+  if(qz.some(z=>z.name===x.title)){alert('มีแบบทดสอบนี้ในชั้นแล้ว');return}
+  const d=await(await fetch(x.file,{cache:'no-store'})).json();
+  if(x.subject&&!subs.some(y=>y.n===x.subject)){subs.push({n:x.subject,e:x.emoji||'📘'});saveSubs()}
+  qz.push({id:Date.now()+Math.random().toString(36).slice(2,6),name:x.title,questions:d.questions,subject:x.subject||'',type:x.type||''});saveQz();shelf()}
+  catch(e){alert('โหลดแบบทดสอบไม่ได้ (ต้องต่ออินเทอร์เน็ต): '+((e&&e.message)||e))}}
 function renderQz(){const o=$('qgrid');o.innerHTML='';
   qz.filter(z=>view==='grid'||cur==='all'||(cur==='none'?!z.subject:z.subject===cur)).forEach(z=>{
     const d=document.createElement('div');d.className='book';const sj=subs.find(x=>x.n===z.subject);
