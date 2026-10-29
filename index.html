@@ -55,6 +55,9 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
 .mt th{font-size:1rem}.mt .sj{font-weight:600;word-break:break-word}
 .mt button{display:block;width:100%;margin:3px 0;padding:6px 4px;font-size:.8rem;line-height:1.3;white-space:normal;word-break:break-word;text-align:left}
 .mt .pl{color:var(--mut)}
+.ch{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;font-size:1rem;line-height:1.4}
+.ch.ok{background:#2e7d32;color:#fff;border-color:#2e7d32;opacity:1}.ch.no{background:#c62828;color:#fff;border-color:#c62828;opacity:1}
+#qbody .note{white-space:pre-line}.big{font-size:2rem;font-weight:700;text-align:center;margin:12px 0}
 </style>
 </head>
 <body>
@@ -65,10 +68,11 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
 <div id="bk"><small>คัดลอกข้อความนี้เก็บไว้ (โน้ต ไฮไลต์ ความคืบหน้า ไม่รวมไฟล์ PDF) หรือวางข้อมูลจากอีกเครื่องแล้วกดนำเข้า ต้องเพิ่ม PDF เล่มเดิมชื่อเดียวกันในเครื่องนี้ก่อน</small><textarea id="bkt"></textarea><button id="bki" class="p">นำเข้า</button> <button id="bkc">ปิด</button></div>
 <main>
 <section id="shelf">
-  <p><button class="p" id="add">+ เพิ่มหนังสือ (PDF)</button> <button id="vw"></button><input id="file" type="file" accept="application/pdf" multiple hidden></p>
+  <p><button class="p" id="add">+ เพิ่ม PDF / แบบทดสอบ</button> <button id="vw"></button><input id="file" type="file" accept="application/pdf,application/json,.json" multiple hidden></p>
   <div id="mat"></div>
   <div id="chips"></div>
   <div class="grid" id="grid"></div>
+  <div class="grid" id="qgrid" style="margin-top:12px"></div>
 </section>
 <section id="reader">
   <div class="tools">
@@ -87,6 +91,10 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
       <p><b>ค้นหาในเล่ม</b></p><input id="q" type="search" placeholder="พิมพ์คำแล้วกด Enter"><div id="qr"></div><details><summary><b>สารบัญ</b></summary><div id="toc"></div></details><p><b>ไฮไลต์และโน้ตทั้งหมด</b></p><div id="notes"></div>
     </aside>
   </div>
+</section>
+<section id="qz" style="display:none">
+  <div class="tools"><button id="qback">← กลับ</button><b id="qt"></b><small id="qp"></small></div>
+  <div id="qbody"></div>
 </section>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -112,8 +120,8 @@ const ls=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 let book=null,pdf=null,page=1,zoom=1,dark=false,timer,texts=null,lastSel=null;
 
 async function shelf(){
-  $('reader').style.display='none';$('shelf').style.display='block';$('title').textContent='📚 '+gt;
-  const gv=view==='grid';$('chips').style.display=gv?'none':'';$('mat').style.display=gv?'block':'none';chips();const bs=(await all('books')).sort((a,b)=>b.added-a.added).filter(b=>gv||cur==='all'||(cur==='none'?!b.subject:b.subject===cur));
+  $('reader').style.display='none';$('qz').style.display='none';$('shelf').style.display='block';$('title').textContent='📚 '+gt;
+  const gv=view==='grid';$('chips').style.display=gv?'none':'';$('mat').style.display=gv?'block':'none';chips();renderQz();const bs=(await all('books')).sort((a,b)=>b.added-a.added).filter(b=>gv||cur==='all'||(cur==='none'?!b.subject:b.subject===cur));
   if(gv)matrix(bs);$('grid').innerHTML=bs.length?'':'<div class="empty">ยังไม่มีหนังสือ กด “เพิ่มหนังสือ” เพื่อเริ่มต้น</div>';
   bs.forEach(b=>{
     const d=document.createElement('div');d.className='book';
@@ -129,6 +137,10 @@ async function shelf(){
 $('add').onclick=()=>{pend=null;$('file').click()};
 $('file').onchange=async e=>{
   for(const f of e.target.files){
+    if(/\.json$/i.test(f.name)){try{const d=JSON.parse(await f.text());
+      if(!Array.isArray(d.questions)||!d.questions.length||d.questions.some(q=>!q.q||!Array.isArray(q.choices)||typeof q.answer!=='number'))throw 0;
+      qz.push({id:Date.now()+Math.random().toString(36).slice(2,6),name:d.title||f.name.replace(/\.json$/i,''),questions:d.questions,subject:pend?pend.s:(subs.some(x=>x.n===cur)?cur:''),type:pend?pend.t:''});saveQz()}
+      catch(err){alert('ไฟล์แบบทดสอบไม่ถูกต้อง: '+f.name)}continue}
     const blob=new Blob([await f.arrayBuffer()],{type:'application/pdf'});
     await put('books',{id:Date.now()+Math.random().toString(36).slice(2,6),name:f.name.replace(/\.pdf$/i,''),blob,page:1,total:0,added:Date.now(),subject:pend?pend.s:(subs.some(x=>x.n===cur)?cur:''),type:pend?pend.t:''});
   }
@@ -143,15 +155,67 @@ function matrix(bs){const m=$('mat');m.innerHTML='';
   subs.forEach(s=>{const r=t.insertRow(),c0=r.insertCell();c0.className='sj';c0.textContent=s.e+' '+s.n;c0.style.cursor='pointer';c0.onclick=()=>{cur=s.n;editSub()};
     types.forEach(ty=>{const c=r.insertCell();
       bs.filter(b=>b.subject===s.n&&b.type===ty).forEach(b=>{const x=document.createElement('button'),pct=b.total?Math.round(b.page/b.total*100):0;x.textContent='📖 '+b.name+(pct?' · '+pct+'%':'');x.title=b.name;x.onclick=()=>openBook(b);c.appendChild(x)});
+      qz.filter(z=>z.subject===s.n&&z.type===ty).forEach(z=>{const x=document.createElement('button');x.textContent='📝 '+z.name+(z.best!=null?' · ดีสุด '+z.best+'/'+z.questions.length:'');x.onclick=()=>openQuiz(z);c.appendChild(x)});
       const a=document.createElement('button');a.className='pl';a.textContent='+';a.onclick=()=>{pend={s:s.n,t:ty};$('file').click()};c.appendChild(a)})});
   m.appendChild(t);m.insertAdjacentHTML('beforeend','<p><small>แตะชื่อวิชาเพื่อแก้ไข/ลบ · แตะ + เพื่อเพิ่ม PDF ลงช่องนั้น · หนังสือทั้งหมดและปุ่มย้าย/ลบอยู่ด้านล่าง</small></p>')}
 async function editCols(){const r=prompt('หัวคอลัมน์ (คั่นด้วยเครื่องหมายจุลภาค ,)',types.join(', '));if(r===null)return;
   const n=r.split(',').map(x=>x.trim()).filter(Boolean);if(!n.length)return;
   for(const b of await all('books')){const i=types.indexOf(b.type);if(i>=0){b.type=n[i]||'';await put('books',b)}}
-  types=n;ls('types',JSON.stringify(types));shelf()}
+  qz.forEach(z=>{const i=types.indexOf(z.type);if(i>=0)z.type=n[i]||''});saveQz();types=n;ls('types',JSON.stringify(types));shelf()}
 $('vw').onclick=()=>{view=view==='grid'?'list':'grid';ls('view',view);$('vw').textContent=view==='grid'?'มุมมองรายการ':'มุมมองตาราง';shelf()};
 $('vw').textContent=view==='grid'?'มุมมองรายการ':'มุมมองตาราง';
 $('title').onclick=()=>{if($('shelf').style.display==='none')return;const r=prompt('ชื่อชั้นหนังสือ',gt);if(r&&r.trim()){gt=r.trim();ls('gt',gt);shelf()}};
+let qz=[];try{qz=JSON.parse(localStorage.getItem('qz')||'[]')}catch(e){}
+const saveQz=()=>ls('qz',JSON.stringify(qz));
+let Q=null;
+function renderQz(){const o=$('qgrid');o.innerHTML='';
+  qz.filter(z=>view==='grid'||cur==='all'||(cur==='none'?!z.subject:z.subject===cur)).forEach(z=>{
+    const d=document.createElement('div');d.className='book';const sj=subs.find(x=>x.n===z.subject);
+    d.innerHTML='<b></b><small></small><br><button class="mv">วิชา</button> <button class="rm">ลบ</button>';
+    d.querySelector('b').textContent='📝 '+(sj?sj.e+' ':'')+z.name;
+    d.querySelector('small').textContent=z.questions.length+' ข้อ'+(z.best!=null?' · ดีที่สุด '+z.best+'/'+z.questions.length:' · ยังไม่เคยทำ');
+    d.onclick=()=>openQuiz(z);
+    d.querySelector('.mv').onclick=e=>{e.stopPropagation();pick(z)};
+    d.querySelector('.rm').onclick=e=>{e.stopPropagation();if(confirm('ลบแบบทดสอบ “'+z.name+'” ?')){qz=qz.filter(y=>y!==z);saveQz();shelf()}};
+    o.appendChild(d)})}
+function showQz(t){$('shelf').style.display='none';$('reader').style.display='none';$('qz').style.display='block';$('title').textContent='📝 '+t}
+function openQuiz(z){showQz(z.name);$('qt').textContent='';$('qp').textContent='';const o=$('qbody');o.innerHTML='';
+  const n=z.questions.length;
+  o.insertAdjacentHTML('beforeend','<p class="big">'+n+' ข้อ</p><p style="text-align:center"><small>'+(z.last?'ครั้งล่าสุด '+z.last.score+'/'+z.last.total+' · ':'')+(z.best!=null?'ดีที่สุด '+z.best+'/'+n:'ยังไม่เคยทำ')+'</small></p>');
+  const add=(l,f,p)=>{const b=document.createElement('button');b.className='ch'+(p?' p':'');b.style.textAlign='center';b.textContent=l;b.onclick=f;o.appendChild(b)};
+  add('เริ่มทำตามลำดับ',()=>startQuiz(z,'seq'),1);add('เริ่มทำแบบสุ่มลำดับข้อ',()=>startQuiz(z,'rand'));
+  if(z.lastWrong&&z.lastWrong.length)add('ทำเฉพาะข้อที่ผิดครั้งล่าสุด ('+z.lastWrong.length+' ข้อ)',()=>startQuiz(z,'wrong'))}
+function startQuiz(z,mode){let idx=z.questions.map((_,i)=>i);
+  if(mode==='wrong')idx=(z.lastWrong||[]).slice();
+  if(mode!=='seq')idx.sort(()=>Math.random()-.5);
+  Q={z,idx,i:0,score:0,wrong:[],full:mode!=='wrong'};showQz(z.name);showQ()}
+function showQ(){const z=Q.z,k=Q.idx[Q.i],q=z.questions[k],L='กขคง';
+  $('qp').textContent=' '+(Q.i+1)+'/'+Q.idx.length+' · ถูก '+Q.score;
+  const o=$('qbody');o.innerHTML='';
+  const h=document.createElement('p');h.style.fontWeight='600';h.textContent=(Q.i+1)+'. '+q.q;o.appendChild(h);
+  let done=false;const ex=document.createElement('div');ex.className='note';ex.style.display='none';
+  const nx=document.createElement('button');nx.className='p ch';nx.style.display='none';nx.style.textAlign='center';
+  nx.textContent=Q.i+1<Q.idx.length?'ข้อถัดไป →':'ดูผลคะแนน';nx.onclick=()=>{Q.i++;Q.i<Q.idx.length?showQ():endQ();window.scrollTo(0,0)};
+  const bs=q.choices.map((t,j)=>{const b=document.createElement('button');b.className='ch';b.textContent=(L[j]||j+1)+'. '+t;
+    b.onclick=()=>{if(done)return;done=true;const ok=j===q.answer;if(ok)Q.score++;else Q.wrong.push(k);
+      bs.forEach((x,m)=>{x.disabled=true;if(m===q.answer)x.classList.add('ok');else if(m===j)x.classList.add('no')});
+      $('qp').textContent=' '+(Q.i+1)+'/'+Q.idx.length+' · ถูก '+Q.score;
+      ex.textContent=(ok?'✅ ถูกต้อง':'❌ ไม่ถูก คำตอบที่ถูกคือ '+(L[q.answer]||q.answer+1)+'. '+q.choices[q.answer])+(q.explain?'\n'+q.explain:'');
+      ex.style.display='block';nx.style.display='block'};
+    o.appendChild(b);return b});
+  o.appendChild(ex);o.appendChild(nx)}
+function endQ(){const z=Q.z,n=Q.idx.length,pct=Math.round(Q.score/n*100),L='กขคง';
+  if(Q.full){z.last={score:Q.score,total:n};if(z.best==null||Q.score>z.best)z.best=Q.score}
+  z.lastWrong=Q.wrong.slice();saveQz();$('qp').textContent='';
+  const o=$('qbody');o.innerHTML='<p class="big">'+Q.score+' / '+n+'</p><p style="text-align:center">'+pct+'% '+(pct>=80?'🎉 ยอดเยี่ยม':pct>=60?'👍 ใช้ได้ ทบทวนอีกนิด':'📖 ลองทบทวนแล้วทำใหม่')+'</p>';
+  const add=(l,f,p)=>{const b=document.createElement('button');b.className='ch'+(p?' p':'');b.style.textAlign='center';b.textContent=l;b.onclick=f;o.appendChild(b)};
+  if(Q.wrong.length)add('ทำเฉพาะข้อที่ผิด ('+Q.wrong.length+' ข้อ)',()=>startQuiz(z,'wrong'),1);
+  add('ทำใหม่แบบสุ่มลำดับ',()=>startQuiz(z,'rand'));add('กลับชั้นหนังสือ',shelf);
+  if(Q.wrong.length){o.insertAdjacentHTML('beforeend','<h3>ข้อที่ผิด</h3>');
+    Q.wrong.forEach(k=>{const q=z.questions[k],d=document.createElement('div');d.className='note';
+      d.textContent=q.q+'\n→ '+(L[q.answer]||q.answer+1)+'. '+q.choices[q.answer]+(q.explain?'\n'+q.explain:'');o.appendChild(d)})}
+  window.scrollTo(0,0)}
+$('qback').onclick=()=>{if(Q&&$('qp').textContent&&!confirm('ออกจากแบบทดสอบ? คะแนนรอบนี้จะไม่ถูกบันทึก'))return;Q=null;shelf()};
 function chips(){const o=$('chips');o.innerHTML='';
   const add=(k,l,f)=>{const c=document.createElement('button');c.className='chip'+(cur===k?' on':'');c.textContent=l;c.onclick=f||(()=>{cur=k;shelf()});o.appendChild(c)};
   add('all','ทั้งหมด');subs.forEach(x=>add(x.n,x.e+' '+x.n));add('none','ไม่มีวิชา');add('+','+ วิชา',newSub);
@@ -161,16 +225,16 @@ function newSub(){const n=(prompt('ชื่อวิชา')||'').trim();if(!n|
 async function editSub(){const x=subs.find(y=>y.n===cur);if(!x)return;
   const n=(prompt('ชื่อใหม่ (เว้นว่าง = คงเดิม, พิมพ์ ลบ = ลบวิชานี้)',x.n)||'').trim();
   if(n==='ลบ'){if(!confirm('ลบวิชา “'+x.n+'” ? หนังสือในวิชานี้จะย้ายไป “ไม่มีวิชา”'))return;
-    for(const b of await all('books'))if(b.subject===x.n){b.subject='';await put('books',b)}subs=subs.filter(y=>y!==x);saveSubs();cur='all';return shelf()}
+    for(const b of await all('books'))if(b.subject===x.n){b.subject='';await put('books',b)}qz.forEach(z=>{if(z.subject===x.n)z.subject=''});saveQz();subs=subs.filter(y=>y!==x);saveSubs();cur='all';return shelf()}
   const e=(prompt('อีโมจิไอคอน',x.e)||x.e).trim();
-  if(n&&n!==x.n&&!subs.some(y=>y.n===n)){for(const b of await all('books'))if(b.subject===x.n){b.subject=n;await put('books',b)}x.n=n;cur=n}
+  if(n&&n!==x.n&&!subs.some(y=>y.n===n)){for(const b of await all('books'))if(b.subject===x.n){b.subject=n;await put('books',b)}qz.forEach(z=>{if(z.subject===x.n)z.subject=n});saveQz();x.n=n;cur=n}
   x.e=e;saveSubs();shelf()}
 function pick(b){const t=subs.map((x,i)=>(i+1)+'. '+x.e+' '+x.n).join('\n');
   if(!subs.length){alert('ยังไม่มีวิชา กด “+ วิชา” เพื่อสร้างก่อน');return}
   const r=prompt('ย้าย “'+b.name+'” ไปวิชาที่ (พิมพ์เลข, 0 = ไม่มีวิชา)\n'+t);if(r===null)return;
   const i=+r;b.subject=i>0&&subs[i-1]?subs[i-1].n:'';
   if(b.subject){const r2=prompt('ประเภทของ “'+b.name+'” (พิมพ์เลข)\n'+types.map((x,k)=>(k+1)+'. '+x).join('\n'));b.type=types[(+r2)-1]||''}else b.type='';
-  put('books',b).then(shelf)}
+  (b.questions?(saveQz(),Promise.resolve()):put('books',b)).then(shelf)}
 async function openBook(b){
   $('title').textContent='กำลังเปิด…';draw.err=0;
   try{const task=pdfjsLib.getDocument({data:new Uint8Array(await b.blob.arrayBuffer()),disableWorker:true,cMapUrl:'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/cmaps/',cMapPacked:true,useSystemFonts:true});
@@ -237,10 +301,10 @@ async function loadToc(){const o=$('toc');o.innerHTML='';let ol=null;try{ol=awai
   const walk=(items,lv)=>items.forEach(it=>{const d=document.createElement('div');d.className='note';d.style.marginLeft=lv*12+'px';d.textContent=it.title;
     d.onclick=async()=>{try{let de=it.dest;if(typeof de==='string')de=await pdf.getDestination(de);go(await pdf.getPageIndex(de[0])+1)}catch(e){}};o.appendChild(d);if(it.items&&it.items.length)walk(it.items,lv+1)});walk(ol,0)}
 $('bkb').onclick=async()=>{const p=$('bk');if(p.style.display==='block'){p.style.display='none';return}
-  const bs=(await all('books')).map(({blob,...m})=>m);$('bkt').value=JSON.stringify({books:bs,notes:await all('notes'),subs,types,gt});p.style.display='block'};
+  const bs=(await all('books')).map(({blob,...m})=>m);$('bkt').value=JSON.stringify({books:bs,notes:await all('notes'),subs,types,gt,qz});p.style.display='block'};
 $('bkc').onclick=()=>$('bk').style.display='none';
 $('bki').onclick=async()=>{try{const d=JSON.parse($('bkt').value),cur=await all('books'),map={};
-  if(d.types){types=d.types;ls('types',JSON.stringify(types))}if(d.gt){gt=d.gt;ls('gt',gt)}for(const x of d.subs||[])if(!subs.some(y=>y.n===x.n))subs.push(x);saveSubs();
+  for(const z of d.qz||[])if(!qz.some(y=>y.name===z.name))qz.push(z);saveQz();if(d.types){types=d.types;ls('types',JSON.stringify(types))}if(d.gt){gt=d.gt;ls('gt',gt)}for(const x of d.subs||[])if(!subs.some(y=>y.n===x.n))subs.push(x);saveSubs();
   for(const m of d.books||[]){const b=cur.find(x=>x.name===m.name);if(b){map[m.id]=b.id;b.page=m.page;if(m.subject!==undefined)b.subject=m.subject;if(m.type!==undefined)b.type=m.type;await put('books',b)}}
   for(const n of d.notes||[]){if(!map[n.id])continue;n.key=n.key.replace(n.id,map[n.id]);n.id=map[n.id];await put('notes',n)}
   alert('นำเข้าแล้ว');$('bk').style.display='none';shelf()}catch(e){alert('ข้อมูลไม่ถูกต้อง')}};
