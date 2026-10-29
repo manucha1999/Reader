@@ -49,6 +49,7 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
 .x{float:right;padding:0 6px}details{margin:8px 0}
 #bk{display:none;padding:12px 16px;border-bottom:1px solid var(--line)}#bk textarea{min-height:90px;margin:6px 0}
 @media (max-width:600px){main{padding:10px}.tools{gap:4px}}
+.chip{margin:0 6px 8px 0}.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 </style>
 </head>
 <body>
@@ -60,6 +61,7 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
 <main>
 <section id="shelf">
   <p><button class="p" id="add">+ เพิ่มหนังสือ (PDF)</button><input id="file" type="file" accept="application/pdf" multiple hidden></p>
+  <div id="chips"></div>
   <div class="grid" id="grid"></div>
 </section>
 <section id="reader">
@@ -96,19 +98,22 @@ async function all(s){return db?await req(st(s).getAll())||[]:Object.values(mem[
 async function put(s,v){if(db)await req(st(s,'readwrite').put(v));else mem[s][v.id||v.key]=v}
 async function del(s,k){if(db)await req(st(s,'readwrite').delete(k));else delete mem[s][k]}
 
+let subs=[],cur='all';try{subs=JSON.parse(localStorage.getItem('subs')||'[]')}catch(e){}
+const saveSubs=()=>{try{localStorage.setItem('subs',JSON.stringify(subs))}catch(e){}};
 let book=null,pdf=null,page=1,zoom=1,dark=false,timer,texts=null,lastSel=null;
 
 async function shelf(){
   $('reader').style.display='none';$('shelf').style.display='block';$('title').textContent='📚 ชั้นหนังสือของฉัน';
-  const bs=(await all('books')).sort((a,b)=>b.added-a.added);
+  chips();const bs=(await all('books')).sort((a,b)=>b.added-a.added).filter(b=>cur==='all'||(cur==='none'?!b.subject:b.subject===cur));
   $('grid').innerHTML=bs.length?'':'<div class="empty">ยังไม่มีหนังสือ กด “เพิ่มหนังสือ” เพื่อเริ่มต้น</div>';
   bs.forEach(b=>{
     const d=document.createElement('div');d.className='book';
     const pct=b.total?Math.round(b.page/b.total*100):0;
-    d.innerHTML=`<b></b><div class="bar"><i style="width:${pct}%"></i></div><small>หน้า ${b.page}/${b.total||'?'} · ${pct}%</small><br><button>ลบ</button>`;
-    d.querySelector('b').textContent=b.name;
+    d.innerHTML=`<b></b><div class="bar"><i style="width:${pct}%"></i></div><small>หน้า ${b.page}/${b.total||'?'} · ${pct}%</small><br><button class="mv">วิชา</button> <button class="rm">ลบ</button>`;
+    const sj=subs.find(x=>x.n===b.subject);d.querySelector('b').textContent=(sj?sj.e+' ':'')+b.name;
     d.onclick=()=>openBook(b);
-    d.querySelector('button').onclick=async e=>{e.stopPropagation();if(confirm('ลบ “'+b.name+'” ?')){await del('books',b.id);for(const n of await all('notes'))if(n.id===b.id)await del('notes',n.key);shelf()}};
+    d.querySelector('.mv').onclick=e=>{e.stopPropagation();pick(b)};
+    d.querySelector('.rm').onclick=async e=>{e.stopPropagation();if(confirm('ลบ “'+b.name+'” ?')){await del('books',b.id);for(const n of await all('notes'))if(n.id===b.id)await del('notes',n.key);shelf()}};
     $('grid').appendChild(d);
   });
 }
@@ -116,10 +121,27 @@ $('add').onclick=()=>$('file').click();
 $('file').onchange=async e=>{
   for(const f of e.target.files){
     const blob=new Blob([await f.arrayBuffer()],{type:'application/pdf'});
-    await put('books',{id:Date.now()+Math.random().toString(36).slice(2,6),name:f.name.replace(/\.pdf$/i,''),blob,page:1,total:0,added:Date.now()});
+    await put('books',{id:Date.now()+Math.random().toString(36).slice(2,6),name:f.name.replace(/\.pdf$/i,''),blob,page:1,total:0,added:Date.now(),subject:subs.some(x=>x.n===cur)?cur:''});
   }
   e.target.value='';shelf();
 };
+function chips(){const o=$('chips');o.innerHTML='';
+  const add=(k,l,f)=>{const c=document.createElement('button');c.className='chip'+(cur===k?' on':'');c.textContent=l;c.onclick=f||(()=>{cur=k;shelf()});o.appendChild(c)};
+  add('all','ทั้งหมด');subs.forEach(x=>add(x.n,x.e+' '+x.n));add('none','ไม่มีวิชา');add('+','+ วิชา',newSub);
+  if(subs.some(x=>x.n===cur))add('ed','✎ แก้ไขวิชานี้',editSub)}
+function newSub(){const n=(prompt('ชื่อวิชา')||'').trim();if(!n||subs.some(x=>x.n===n))return;
+  subs.push({n,e:(prompt('อีโมจิไอคอนของวิชา (เช่น 📐 🧪 📖)','📘')||'📘').trim()});saveSubs();cur=n;shelf()}
+async function editSub(){const x=subs.find(y=>y.n===cur);if(!x)return;
+  const n=(prompt('ชื่อใหม่ (เว้นว่าง = คงเดิม, พิมพ์ ลบ = ลบวิชานี้)',x.n)||'').trim();
+  if(n==='ลบ'){if(!confirm('ลบวิชา “'+x.n+'” ? หนังสือในวิชานี้จะย้ายไป “ไม่มีวิชา”'))return;
+    for(const b of await all('books'))if(b.subject===x.n){b.subject='';await put('books',b)}subs=subs.filter(y=>y!==x);saveSubs();cur='all';return shelf()}
+  const e=(prompt('อีโมจิไอคอน',x.e)||x.e).trim();
+  if(n&&n!==x.n&&!subs.some(y=>y.n===n)){for(const b of await all('books'))if(b.subject===x.n){b.subject=n;await put('books',b)}x.n=n;cur=n}
+  x.e=e;saveSubs();shelf()}
+function pick(b){const t=subs.map((x,i)=>(i+1)+'. '+x.e+' '+x.n).join('\n');
+  if(!subs.length){alert('ยังไม่มีวิชา กด “+ วิชา” เพื่อสร้างก่อน');return}
+  const r=prompt('ย้าย “'+b.name+'” ไปวิชาที่ (พิมพ์เลข, 0 = ไม่มีวิชา)\n'+t);if(r===null)return;
+  const i=+r;b.subject=i>0&&subs[i-1]?subs[i-1].n:'';put('books',b).then(shelf)}
 async function openBook(b){
   try{pdf=await pdfjsLib.getDocument({data:await b.blob.arrayBuffer(),disableWorker:true}).promise}catch(e){alert('เปิดไฟล์ไม่ได้');return}
   book=b;b.total=pdf.numPages;page=Math.min(b.page||1,pdf.numPages);
@@ -179,10 +201,11 @@ async function loadToc(){const o=$('toc');o.innerHTML='';let ol=null;try{ol=awai
   const walk=(items,lv)=>items.forEach(it=>{const d=document.createElement('div');d.className='note';d.style.marginLeft=lv*12+'px';d.textContent=it.title;
     d.onclick=async()=>{try{let de=it.dest;if(typeof de==='string')de=await pdf.getDestination(de);go(await pdf.getPageIndex(de[0])+1)}catch(e){}};o.appendChild(d);if(it.items&&it.items.length)walk(it.items,lv+1)});walk(ol,0)}
 $('bkb').onclick=async()=>{const p=$('bk');if(p.style.display==='block'){p.style.display='none';return}
-  const bs=(await all('books')).map(({blob,...m})=>m);$('bkt').value=JSON.stringify({books:bs,notes:await all('notes')});p.style.display='block'};
+  const bs=(await all('books')).map(({blob,...m})=>m);$('bkt').value=JSON.stringify({books:bs,notes:await all('notes'),subs});p.style.display='block'};
 $('bkc').onclick=()=>$('bk').style.display='none';
 $('bki').onclick=async()=>{try{const d=JSON.parse($('bkt').value),cur=await all('books'),map={};
-  for(const m of d.books||[]){const b=cur.find(x=>x.name===m.name);if(b){map[m.id]=b.id;b.page=m.page;await put('books',b)}}
+  for(const x of d.subs||[])if(!subs.some(y=>y.n===x.n))subs.push(x);saveSubs();
+  for(const m of d.books||[]){const b=cur.find(x=>x.name===m.name);if(b){map[m.id]=b.id;b.page=m.page;if(m.subject!==undefined)b.subject=m.subject;await put('books',b)}}
   for(const n of d.notes||[]){if(!map[n.id])continue;n.key=n.key.replace(n.id,map[n.id]);n.id=map[n.id];await put('notes',n)}
   alert('นำเข้าแล้ว');$('bk').style.display='none';shelf()}catch(e){alert('ข้อมูลไม่ถูกต้อง')}};
 let sx=null;$('box').addEventListener('touchstart',e=>{sx=e.touches.length===1?e.touches[0].clientX:null},{passive:true});
