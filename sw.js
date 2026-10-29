@@ -1,4 +1,4 @@
-const C='reader-v2';
+const C='reader-v3';
 const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png'];
 const LIBS=['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js','https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js'];
 self.addEventListener('install',e=>{e.waitUntil((async()=>{const c=await caches.open(C);await c.addAll(CORE);
