@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>ชั้นหนังสือของฉัน</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#b5532f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="หนังสือ">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf7f2;--fg:#2b2622;--card:#fff;--line:#e4ddd2;--acc:#b5532f;--mut:#8a8176}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1b19;--fg:#ece6dc;--card:#2a2724;--line:#3d3833;--acc:#e08a63;--mut:#a39a8f}}
+:root[data-theme="dark"]{--bg:#1d1b19;--fg:#ece6dc;--card:#2a2724;--line:#3d3833;--acc:#e08a63;--mut:#a39a8f}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Sarabun","Noto Sans Thai",system-ui,sans-serif;line-height:1.5}
+button,input,textarea{font:inherit;color:inherit}
+button{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button.p{background:var(--acc);border-color:var(--acc);color:#fff}
+header{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+header h1{font-size:1.2rem;margin:0;flex:1}
+main{max-width:960px;margin:0 auto;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.book{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer}
+.book b{display:block;word-break:break-word}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:8px 0 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--acc)}
+small{color:var(--mut)}
+.empty{text-align:center;padding:48px 16px;color:var(--mut)}
+#reader{display:none}
+.tools{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:8px 0;z-index:5}
+.tools input[type=number]{width:64px;padding:5px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.wrap{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.pg{flex:1 1 480px;min-width:0;overflow-x:auto;text-align:center}
+canvas{max-width:100%;box-shadow:0 2px 12px #0003;background:#fff}
+.dark canvas{filter:invert(1) hue-rotate(180deg)}
+aside{flex:1 1 240px;max-width:100%}
+textarea{width:100%;min-height:120px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.note{border-left:3px solid var(--acc);padding:4px 8px;margin:6px 0;cursor:pointer;background:var(--card);border-radius:0 8px 8px 0;font-size:.9rem}
+#box{position:relative;display:inline-block;line-height:0}#box canvas{display:block}
+#hl,#tl{position:absolute;inset:0}#hl{pointer-events:none}
+#hl i{position:absolute;background:#ffd84a;opacity:.45;mix-blend-mode:multiply}
+#tl{line-height:1;overflow:hidden;text-align:left}#tl span{position:absolute;white-space:pre;color:transparent;transform-origin:0 0}
+#tl ::selection{background:#3b82f64d}
+.tools button{min-height:40px}
+aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.x{float:right;padding:0 6px}details{margin:8px 0}
+#bk{display:none;padding:12px 16px;border-bottom:1px solid var(--line)}#bk textarea{min-height:90px;margin:6px 0}
+@media (max-width:600px){main{padding:10px}.tools{gap:4px}}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">📚 ชั้นหนังสือของฉัน</h1>
+  <button id="bkb">สำรอง/กู้คืน</button><button id="theme">🌓</button>
+</header>
+<div id="bk"><small>คัดลอกข้อความนี้เก็บไว้ (โน้ต ไฮไลต์ ความคืบหน้า ไม่รวมไฟล์ PDF) หรือวางข้อมูลจากอีกเครื่องแล้วกดนำเข้า ต้องเพิ่ม PDF เล่มเดิมชื่อเดียวกันในเครื่องนี้ก่อน</small><textarea id="bkt"></textarea><button id="bki" class="p">นำเข้า</button> <button id="bkc">ปิด</button></div>
+<main>
+<section id="shelf">
+  <p><button class="p" id="add">+ เพิ่มหนังสือ (PDF)</button><input id="file" type="file" accept="application/pdf" multiple hidden></p>
+  <div class="grid" id="grid"></div>
+</section>
+<section id="reader">
+  <div class="tools">
+    <button id="back">← ชั้นหนังสือ</button>
+    <button id="prev">‹</button>
+    <input id="pn" type="number" min="1"><small id="tot"></small>
+    <button id="next">›</button>
+    <button id="zo">−</button><button id="zi">+</button>
+    <button id="dk">โหมดมืด</button><button id="hb">🖍 ไฮไลต์</button>
+  </div>
+  <div class="wrap">
+    <div class="pg"><div id="box"><canvas id="cv"></canvas><div id="hl"></div><div id="tl"></div></div></div>
+    <aside>
+      <b>โน้ตหน้านี้</b>
+      <textarea id="note" placeholder="จดอะไรไว้ตรงนี้…"></textarea>
+      <p><b>ค้นหาในเล่ม</b></p><input id="q" type="search" placeholder="พิมพ์คำแล้วกด Enter"><div id="qr"></div><details><summary><b>สารบัญ</b></summary><div id="toc"></div></details><p><b>ไฮไลต์และโน้ตทั้งหมด</b></p><div id="notes"></div>
+    </aside>
+  </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+pdfjsLib.GlobalWorkerOptions.workerSrc='pdf.worker.min.js';
+let db=null,mem={books:{},notes:{}};
+function open(){return new Promise(r=>{try{const q=indexedDB.open('reader',1);
+q.onupgradeneeded=()=>{q.result.createObjectStore('books',{keyPath:'id'});q.result.createObjectStore('notes',{keyPath:'key'})};
+q.onsuccess=()=>{db=q.result;r()};q.onerror=()=>r()}catch(e){r()}})}
+function st(s,m='readonly'){return db.transaction(s,m).objectStore(s)}
+const req=q=>new Promise(r=>{q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)});
+async function all(s){return db?await req(st(s).getAll())||[]:Object.values(mem[s])}
+async function put(s,v){if(db)await req(st(s,'readwrite').put(v));else mem[s][v.id||v.key]=v}
+async function del(s,k){if(db)await req(st(s,'readwrite').delete(k));else delete mem[s][k]}
+
+let book=null,pdf=null,page=1,zoom=1,dark=false,timer,texts=null,lastSel=null;
+
+async function shelf(){
+  $('reader').style.display='none';$('shelf').style.display='block';$('title').textContent='📚 ชั้นหนังสือของฉัน';
+  const bs=(await all('books')).sort((a,b)=>b.added-a.added);
+  $('grid').innerHTML=bs.length?'':'<div class="empty">ยังไม่มีหนังสือ กด “เพิ่มหนังสือ” เพื่อเริ่มต้น</div>';
+  bs.forEach(b=>{
+    const d=document.createElement('div');d.className='book';
+    const pct=b.total?Math.round(b.page/b.total*100):0;
+    d.innerHTML=`<b></b><div class="bar"><i style="width:${pct}%"></i></div><small>หน้า ${b.page}/${b.total||'?'} · ${pct}%</small><br><button>ลบ</button>`;
+    d.querySelector('b').textContent=b.name;
+    d.onclick=()=>openBook(b);
+    d.querySelector('button').onclick=async e=>{e.stopPropagation();if(confirm('ลบ “'+b.name+'” ?')){await del('books',b.id);for(const n of await all('notes'))if(n.id===b.id)await del('notes',n.key);shelf()}};
+    $('grid').appendChild(d);
+  });
+}
+$('add').onclick=()=>$('file').click();
+$('file').onchange=async e=>{
+  for(const f of e.target.files){
+    const blob=new Blob([await f.arrayBuffer()],{type:'application/pdf'});
+    await put('books',{id:Date.now()+Math.random().toString(36).slice(2,6),name:f.name.replace(/\.pdf$/i,''),blob,page:1,total:0,added:Date.now()});
+  }
+  e.target.value='';shelf();
+};
+async function openBook(b){
+  try{pdf=await pdfjsLib.getDocument({data:await b.blob.arrayBuffer(),disableWorker:true}).promise}catch(e){alert('เปิดไฟล์ไม่ได้');return}
+  book=b;b.total=pdf.numPages;page=Math.min(b.page||1,pdf.numPages);
+  $('shelf').style.display='none';$('reader').style.display='block';$('title').textContent=b.name;
+  $('tot').textContent=' / '+pdf.numPages;$('pn').max=pdf.numPages;texts=null;$('qr').innerHTML='';$('q').value='';loadToc();
+  await go(page);
+}
+let rendering=false,pending=null;
+async function go(n){
+  page=Math.max(1,Math.min(pdf.numPages,n));lastSel=null;$('pn').value=page;
+  book.page=page;put('books',book);
+  const nt=(await req(db?st('notes').get(book.id+':'+page):{onsuccess:0}))||mem.notes[book.id+':'+page];
+  $('note').value=nt?nt.text:'';
+  draw();listNotes();
+}
+async function draw(){
+  if(rendering){pending=true;return}
+  rendering=true;
+  const p=await pdf.getPage(page),w=Math.min($('reader').querySelector('.pg').clientWidth||600,900);
+  const base=p.getViewport({scale:1}),sc=(w/base.width)*zoom,v=p.getViewport({scale:sc*devicePixelRatio});
+  const c=$('cv');c.width=v.width;c.height=v.height;c.style.width=v.width/devicePixelRatio+'px';
+  await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+  const tl=$('tl');tl.innerHTML='';
+  try{await pdfjsLib.renderTextLayer({textContent:await p.getTextContent(),container:tl,viewport:p.getViewport({scale:sc}),textDivs:[]}).promise}catch(e){}
+  drawHl();
+  rendering=false;if(pending){pending=null;draw()}
+}
+async function listNotes(){
+  const ns=(await all('notes')).filter(n=>n.id===book.id&&(n.kind||n.text.trim())).sort((a,b)=>a.page-b.page);
+  $('notes').innerHTML=ns.length?'':'<small>ยังไม่มีโน้ต</small>';
+  ns.forEach(n=>{const d=document.createElement('div');d.className='note';
+    d.innerHTML='<small>'+(n.kind?'🖍 ':'')+'หน้า '+n.page+'</small>'+(n.kind?'<button class="x">✕</button>':'')+'<br>';d.append(n.text.slice(0,120));d.onclick=()=>go(n.page);
+    if(n.kind)d.querySelector('.x').onclick=async e=>{e.stopPropagation();await del('notes',n.key);listNotes();drawHl()};
+    $('notes').appendChild(d)});
+}
+$('note').oninput=()=>{clearTimeout(timer);timer=setTimeout(async()=>{
+  await put('notes',{key:book.id+':'+page,id:book.id,page,text:$('note').value});listNotes()},400)};
+$('prev').onclick=()=>go(page-1);$('next').onclick=()=>go(page+1);
+$('pn').onchange=()=>go(+$('pn').value||1);
+$('zi').onclick=()=>{zoom=Math.min(2.5,zoom+.15);draw()};
+$('zo').onclick=()=>{zoom=Math.max(.5,zoom-.15);draw()};
+$('dk').onclick=()=>{dark=!dark;$('reader').classList.toggle('dark',dark)};
+$('back').onclick=shelf;
+$('theme').onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).getPropertyValue('--bg').trim()==='#1d1b19';r.dataset.theme=d?'light':'dark'};
+document.addEventListener('keydown',e=>{if(!book||$('reader').style.display==='none'||e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowRight')go(page+1);if(e.key==='ArrowLeft')go(page-1)});
+function drawHl(){const h=$('hl');h.innerHTML='';all('notes').then(ns=>ns.filter(n=>n.kind&&n.id===book.id&&n.page===page).forEach(n=>n.rects.forEach(r=>{const i=document.createElement('i');i.style.cssText=`left:${r[0]*100}%;top:${r[1]*100}%;width:${r[2]*100}%;height:${r[3]*100}%`;h.appendChild(i)})))}
+document.addEventListener('selectionchange',()=>{const s=getSelection();if(!s.rangeCount||s.isCollapsed||!$('box'))return;const r=s.getRangeAt(0),b=$('box').getBoundingClientRect();if(!$('box').contains(r.commonAncestorContainer)||!b.width)return;
+  const rs=[...r.getClientRects()].filter(q=>q.width>1).map(q=>[(q.left-b.left)/b.width,(q.top-b.top)/b.height,q.width/b.width,q.height/b.height]);if(rs.length)lastSel={text:s.toString().trim(),rects:rs}});
+$('hb').onclick=async()=>{if(!lastSel){alert('เลือกข้อความบนหน้า (แตะค้างหรือลากคลุม) ก่อน แล้วกดไฮไลต์');return}
+  await put('notes',{key:book.id+':h:'+Date.now(),id:book.id,page,kind:'h',text:lastSel.text,rects:lastSel.rects});lastSel=null;getSelection().removeAllRanges();drawHl();listNotes()};
+$('q').onkeydown=async e=>{if(e.key!=='Enter')return;const q=e.target.value.trim().toLowerCase();if(!q)return;const o=$('qr');
+  if(!texts){texts=[];for(let i=1;i<=pdf.numPages;i++){o.textContent='กำลังอ่านหน้า '+i+'/'+pdf.numPages;texts.push((await(await pdf.getPage(i)).getTextContent()).items.map(t=>t.str).join(' '))}}
+  o.innerHTML='';let n=0;texts.forEach((t,i)=>{const k=t.toLowerCase().indexOf(q);if(k<0||n>=40)return;n++;const d=document.createElement('div');d.className='note';d.innerHTML='<small>หน้า '+(i+1)+'</small><br>';d.append('…'+t.slice(Math.max(0,k-30),k+60)+'…');d.onclick=()=>go(i+1);o.appendChild(d)});if(!n)o.innerHTML='<small>ไม่พบคำนี้</small>'};
+async function loadToc(){const o=$('toc');o.innerHTML='';let ol=null;try{ol=await pdf.getOutline()}catch(e){}
+  if(!ol||!ol.length){o.innerHTML='<small>เล่มนี้ไม่มีสารบัญ</small>';return}
+  const walk=(items,lv)=>items.forEach(it=>{const d=document.createElement('div');d.className='note';d.style.marginLeft=lv*12+'px';d.textContent=it.title;
+    d.onclick=async()=>{try{let de=it.dest;if(typeof de==='string')de=await pdf.getDestination(de);go(await pdf.getPageIndex(de[0])+1)}catch(e){}};o.appendChild(d);if(it.items&&it.items.length)walk(it.items,lv+1)});walk(ol,0)}
+$('bkb').onclick=async()=>{const p=$('bk');if(p.style.display==='block'){p.style.display='none';return}
+  const bs=(await all('books')).map(({blob,...m})=>m);$('bkt').value=JSON.stringify({books:bs,notes:await all('notes')});p.style.display='block'};
+$('bkc').onclick=()=>$('bk').style.display='none';
+$('bki').onclick=async()=>{try{const d=JSON.parse($('bkt').value),cur=await all('books'),map={};
+  for(const m of d.books||[]){const b=cur.find(x=>x.name===m.name);if(b){map[m.id]=b.id;b.page=m.page;await put('books',b)}}
+  for(const n of d.notes||[]){if(!map[n.id])continue;n.key=n.key.replace(n.id,map[n.id]);n.id=map[n.id];await put('notes',n)}
+  alert('นำเข้าแล้ว');$('bk').style.display='none';shelf()}catch(e){alert('ข้อมูลไม่ถูกต้อง')}};
+let sx=null;$('box').addEventListener('touchstart',e=>{sx=e.touches.length===1?e.touches[0].clientX:null},{passive:true});
+$('box').addEventListener('touchend',e=>{if(sx===null||zoom>1||!getSelection().isCollapsed)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>70)go(page+(dx<0?1:-1));sx=null});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+open().then(shelf);
+</script>
+</body>
+</html>
