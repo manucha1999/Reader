@@ -53,7 +53,7 @@ aside input[type=search]{width:100%;padding:8px;border:1px solid var(--line);bor
 .mt{width:100%;border-collapse:collapse;table-layout:fixed;background:var(--card)}
 .mt th,.mt td{border:1px solid var(--line);padding:6px 4px;text-align:center;vertical-align:middle}
 .mt th{font-size:1rem}.mt .sj{font-weight:600;word-break:break-word}
-.mt button{display:block;width:100%;margin:3px 0;padding:6px 4px;font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mt button{display:block;width:100%;margin:3px 0;padding:6px 4px;font-size:.8rem;line-height:1.3;white-space:normal;word-break:break-word;text-align:left}
 .mt .pl{color:var(--mut)}
 </style>
 </head>
@@ -172,7 +172,10 @@ function pick(b){const t=subs.map((x,i)=>(i+1)+'. '+x.e+' '+x.n).join('\n');
   if(b.subject){const r2=prompt('ประเภทของ “'+b.name+'” (พิมพ์เลข)\n'+types.map((x,k)=>(k+1)+'. '+x).join('\n'));b.type=types[(+r2)-1]||''}else b.type='';
   put('books',b).then(shelf)}
 async function openBook(b){
-  try{pdf=await pdfjsLib.getDocument({data:await b.blob.arrayBuffer(),disableWorker:true}).promise}catch(e){alert('เปิดไฟล์ไม่ได้');return}
+  $('title').textContent='กำลังเปิด…';draw.err=0;
+  try{const task=pdfjsLib.getDocument({data:new Uint8Array(await b.blob.arrayBuffer()),disableWorker:true,cMapUrl:'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/cmaps/',cMapPacked:true,useSystemFonts:true});
+    task.onPassword=(cb,why)=>{const p=prompt(why===2?'รหัสผ่านไม่ถูกต้อง ลองอีกครั้ง':'ไฟล์นี้มีรหัสผ่าน ใส่รหัส');if(p===null)task.destroy();else cb(p)};
+    pdf=await task.promise}catch(e){$('title').textContent='📚 '+gt;alert('เปิดไฟล์ไม่ได้: '+((e&&e.message)||e)+'\n('+b.name+')');return}
   book=b;b.total=pdf.numPages;page=Math.min(b.page||1,pdf.numPages);
   $('shelf').style.display='none';$('reader').style.display='block';$('title').textContent=b.name;
   $('tot').textContent=' / '+pdf.numPages;$('pn').max=pdf.numPages;texts=null;$('qr').innerHTML='';$('q').value='';loadToc();
@@ -189,14 +192,18 @@ async function go(n){
 async function draw(){
   if(rendering){pending=true;return}
   rendering=true;
-  const p=await pdf.getPage(page),w=Math.min($('reader').querySelector('.pg').clientWidth||600,900);
-  const base=p.getViewport({scale:1}),sc=(w/base.width)*zoom,v=p.getViewport({scale:sc*devicePixelRatio});
-  const c=$('cv');c.width=v.width;c.height=v.height;c.style.width=v.width/devicePixelRatio+'px';
-  await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
-  const tl=$('tl');tl.innerHTML='';
-  try{await pdfjsLib.renderTextLayer({textContent:await p.getTextContent(),container:tl,viewport:p.getViewport({scale:sc}),textDivs:[]}).promise}catch(e){}
-  drawHl();
-  rendering=false;if(pending){pending=null;draw()}
+  try{
+    const p=await pdf.getPage(page),w=Math.min($('reader').querySelector('.pg').clientWidth||600,900);
+    const base=p.getViewport({scale:1}),sc=(w/base.width)*zoom;let r=devicePixelRatio||1;
+    const k=Math.sqrt(12e6/(base.width*sc*r*base.height*sc*r));if(k<1)r*=k;
+    const v=p.getViewport({scale:sc*r});
+    const c=$('cv');c.width=v.width;c.height=v.height;c.style.width=base.width*sc+'px';
+    await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+    const tl=$('tl');tl.innerHTML='';
+    try{await pdfjsLib.renderTextLayer({textContent:await p.getTextContent(),container:tl,viewport:p.getViewport({scale:sc}),textDivs:[]}).promise}catch(e){}
+    drawHl();
+  }catch(e){if(!draw.err){draw.err=1;alert('แสดงหน้านี้ไม่ได้: '+((e&&e.message)||e))}}
+  finally{rendering=false;if(pending){pending=null;draw()}}
 }
 async function listNotes(){
   const ns=(await all('notes')).filter(n=>n.id===book.id&&(n.kind||n.text.trim())).sort((a,b)=>a.page-b.page);
