@@ -1,0 +1,1105 @@
+{
+ "title": "ข้อสอบ ภาษาอังกฤษ ม.ปลาย (100 ข้อ)",
+ "questions": [
+  {
+   "q": "She ____ to school every day.",
+   "choices": [
+    "has gone",
+    "is going",
+    "goes",
+    "went"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: every day = กิจวัตร → Present Simple และประธาน She เป็นเอกพจน์ กริยาเติม -es จึงเป็น goes\n\n✔ คำตอบที่ถูกคือ “goes”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has gone — Present Perfect ไม่ใช่คำบอกกิจวัตร\n• is going — every day บอกกิจวัตร ใช้ Present Simple ไม่ใช่ Continuous\n• went — เป็นอดีต แต่ every day เป็นกิจวัตรปัจจุบัน"
+  },
+  {
+   "q": "Look! The baby ____ .",
+   "choices": [
+    "sleeps",
+    "is sleeping",
+    "slept",
+    "has slept"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: Look! เป็นคำสังเกตของ Present Continuous (is/am/are + V-ing) = กำลังทำตอนนี้\n\n✔ คำตอบที่ถูกคือ “is sleeping”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• sleeps — Look! บอกว่ากำลังเกิดขึ้นตอนนี้ ไม่ใช่ความจริงทั่วไป\n• slept — เป็นอดีต ขัดกับ Look!\n• has slept — Present Perfect ไม่เหมาะกับการชี้ให้ดูสิ่งที่กำลังเกิดขึ้น"
+  },
+  {
+   "q": "I have lived in Bangkok ____ 2015.",
+   "choices": [
+    "for",
+    "during",
+    "since",
+    "ago"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: since + จุดเวลา (since 2015) ใช้กับ Present Perfect\n\n✔ คำตอบที่ถูกคือ “since”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• for — for ต้องตามด้วยช่วงเวลา (for ten years) ส่วน 2015 เป็นจุดเวลา\n• during — ไม่ใช้เชื่อมจุดเวลากับ Present Perfect แบบนี้\n• ago — ago ใช้กับ Past Simple และตามหลังช่วงเวลา"
+  },
+  {
+   "q": "My uncle has worked in this company ____ twenty years.",
+   "choices": [
+    "at",
+    "ago",
+    "since",
+    "for"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: for + ช่วงเวลา (for twenty years) ใช้กับ Present Perfect\n\n✔ คำตอบที่ถูกคือ “for”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• at — ไม่ใช้กับช่วงเวลา\n• ago — twenty years ago ใช้กับ Past Simple\n• since — since ต้องตามด้วยจุดเวลา เช่น since 2005"
+  },
+  {
+   "q": "They ____ the football match yesterday.",
+   "choices": [
+    "win",
+    "won",
+    "have won",
+    "will win"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: yesterday = จบแล้วในอดีต → Past Simple (V2) คือ won\n\n✔ คำตอบที่ถูกคือ “won”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• win — ต้องเป็นอดีต เพราะมี yesterday\n• have won — yesterday เป็นเวลาที่จบแล้ว ห้ามใช้ Present Perfect\n• will win — เป็นอนาคต ขัดกับ yesterday"
+  },
+  {
+   "q": "While I ____ TV, the phone rang.",
+   "choices": [
+    "am watching",
+    "watched",
+    "was watching",
+    "have watched"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: while + เหตุการณ์ที่กำลังทำ แล้วมีเหตุการณ์แทรก (rang) → Past Continuous (was/were + V-ing)\n\n✔ คำตอบที่ถูกคือ “was watching”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• am watching — เป็นปัจจุบัน ขัดกับ rang\n• watched — while บอกเหตุการณ์ที่กำลังดำเนินอยู่ ต้องใช้ Past Continuous\n• have watched — Present Perfect ไม่เข้ากับ rang (อดีต)"
+  },
+  {
+   "q": "By the time we arrived, the film ____ .",
+   "choices": [
+    "has started",
+    "had started",
+    "was starting",
+    "started"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: by the time / before / after บ่งชี้ Past Perfect (had + V3) เหตุการณ์ที่เกิดก่อน\n\n✔ คำตอบที่ถูกคือ “had started”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has started — Present Perfect ไม่ใช้กับอดีตที่มี arrived\n• was starting — Past Continuous ไม่ได้สื่อว่าเริ่มไปก่อนแล้ว\n• started — by the time เน้นเหตุการณ์ที่เกิดก่อนอีกเหตุการณ์ในอดีต ต้องใช้ Past Perfect"
+  },
+  {
+   "q": "We ____ to Chiang Mai next week.",
+   "choices": [
+    "going",
+    "will go",
+    "went",
+    "have gone"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: next week = อนาคต → will + V1 หรือ be going to\n\n✔ คำตอบที่ถูกคือ “will go”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• going — ขาด is/are จึงไม่ใช่กริยาหลักที่สมบูรณ์\n• went — next week เป็นอนาคต ไม่ใช่อดีต\n• have gone — Present Perfect ไม่ใช้กับ next week"
+  },
+  {
+   "q": "Have you ____ been to Japan?",
+   "choices": [
+    "last",
+    "ago",
+    "yesterday",
+    "ever"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: ever เป็นคำสังเกตของ Present Perfect แบบถามประสบการณ์\n\n✔ คำตอบที่ถูกคือ “ever”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• last — ต้องมี last year/week ประกอบ และไม่ใช้กับ Present Perfect\n• ago — ago ใช้กับ Past Simple\n• yesterday — yesterday ใช้กับ Past Simple เท่านั้น"
+  },
+  {
+   "q": "He ____ his homework already.",
+   "choices": [
+    "finish",
+    "has finished",
+    "was finish",
+    "is finishing"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: already เป็นคำสังเกตของ Present Perfect (has/have + V3)\n\n✔ คำตอบที่ถูกคือ “has finished”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• finish — ประธานเอกพจน์ต้องเติม s/es และ already บ่งชี้ Present Perfect\n• was finish — รูปกริยาผิด\n• is finishing — already ไม่ได้บอกว่ากำลังทำ"
+  },
+  {
+   "q": "Each of the students ____ a book.",
+   "choices": [
+    "are having",
+    "have",
+    "has",
+    "having"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: Each / Every / Everyone / Nobody = เอกพจน์ → has\n\n✔ คำตอบที่ถูกคือ “has”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• are having — Each เป็นเอกพจน์ ใช้ are ไม่ได้\n• have — Each เป็นเอกพจน์ ต้องใช้ has\n• having — ขาดกริยาช่วยจึงไม่สมบูรณ์"
+  },
+  {
+   "q": "The number of students in this school ____ increasing.",
+   "choices": [
+    "are",
+    "is",
+    "were",
+    "have been"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: The number of = เอกพจน์ (ต่างจาก A number of ที่เป็นพหูพจน์)\n\n✔ คำตอบที่ถูกคือ “is”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• are — The number of = เอกพจน์\n• were — พหูพจน์/อดีต ไม่ตรงกับ The number of ที่เป็นเอกพจน์\n• have been — พหูพจน์ ผิดกับ The number of"
+  },
+  {
+   "q": "A number of students ____ absent today.",
+   "choices": [
+    "has been",
+    "are",
+    "is",
+    "was"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: A number of = พหูพจน์ → are (ตรงข้ามกับ The number of)\n\n✔ คำตอบที่ถูกคือ “are”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has been — เอกพจน์ ผิดกับ A number of\n• is — A number of = พหูพจน์ ใช้ is ไม่ได้\n• was — เป็นเอกพจน์/อดีต ไม่ตรงกับ A number of"
+  },
+  {
+   "q": "Neither Tom nor his friends ____ at home.",
+   "choices": [
+    "has",
+    "are",
+    "is",
+    "does"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: Neither A nor B / Either A or B → กริยาตาม B ซึ่งคือ his friends (พหูพจน์) จึงใช้ are\n\n✔ คำตอบที่ถูกคือ “are”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has — has เป็นเอกพจน์และไม่ใช่รูปที่ต้องการ\n• is — Neither...nor กริยาตาม B (friends พหูพจน์)\n• does — does ไม่ใช่กริยาแท้ที่สื่อความหมาย 'อยู่บ้าน'"
+  },
+  {
+   "q": "The news ____ surprising.",
+   "choices": [
+    "have",
+    "were",
+    "are",
+    "is"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: นามนับไม่ได้ (news, information, advice, money) = เอกพจน์ → is\n\n✔ คำตอบที่ถูกคือ “is”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• have — ไม่ใช่กริยาที่ใช้เชื่อมกับ adjective\n• were — ใช้กับพหูพจน์/อดีต ไม่เหมาะกับ news\n• are — news เป็นนามนับไม่ได้ = เอกพจน์"
+  },
+  {
+   "q": "Tom, as well as his parents, ____ going to the party.",
+   "choices": [
+    "have",
+    "is",
+    "were",
+    "are"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: A as well as B / A with B → กริยาตาม A (Tom เอกพจน์) จึงใช้ is\n\n✔ คำตอบที่ถูกคือ “is”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• have — ไม่ใช่รูปที่ใช้กับ going\n• were — พหูพจน์/อดีต ไม่ตรงกับ Tom\n• are — as well as ทำให้กริยาตาม A (Tom)"
+  },
+  {
+   "q": "I get up ____ 6 a.m.",
+   "choices": [
+    "at",
+    "to",
+    "on",
+    "in"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: at ใช้กับเวลาและจุดเฉพาะ (at 6 a.m., at night, at school)\n\n✔ คำตอบที่ถูกคือ “at”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• to — ไม่ใช้บอกเวลาแบบนี้\n• on — on ใช้กับวัน วันที่ ถนน\n• in — in ใช้กับเดือน ปี ฤดู เมือง"
+  },
+  {
+   "q": "My birthday is ____ May.",
+   "choices": [
+    "at",
+    "in",
+    "to",
+    "on"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: in ใช้กับเดือน ปี ฤดู เมือง (in May, in 2020, in summer)\n\n✔ คำตอบที่ถูกคือ “in”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• at — at ใช้กับเวลาเฉพาะ\n• to — ไม่ใช้บอกเดือน\n• on — on ใช้กับวัน/วันที่ (on May 5th)"
+  },
+  {
+   "q": "The meeting is ____ Monday.",
+   "choices": [
+    "in",
+    "by",
+    "at",
+    "on"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: on ใช้กับวันและวันที่ (on Monday, on May 5th)\n\n✔ คำตอบที่ถูกคือ “on”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• in — in ใช้กับช่วงเวลากว้าง เช่น เดือน ปี\n• by — by แปลว่า ภายใน/ก่อน ไม่ใช่การบอกวัน\n• at — at ใช้กับเวลาแคบ เช่น at 8 o'clock"
+  },
+  {
+   "q": "He waited for ____ hour.",
+   "choices": [
+    "a",
+    "the",
+    "any",
+    "an"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: a / an ดูที่เสียง ไม่ใช่ตัวอักษร: an hour (h ไม่ออกเสียง), a university (ขึ้นต้นเสียง ยู)\n\n✔ คำตอบที่ถูกคือ “an”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• a — hour ออกเสียงขึ้นต้นด้วยเสียงสระ (อาวเออร์) จึงใช้ an\n• the — ไม่ได้ระบุเฉพาะเจาะจง จึงไม่ใช้ the\n• any — ใช้กับประโยคปฏิเสธ/คำถามและนามพหูพจน์ ไม่เหมาะกับ hour เอกพจน์"
+  },
+  {
+   "q": "They live ____ Sukhumvit Road.",
+   "choices": [
+    "to",
+    "on",
+    "in",
+    "at"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: on ใช้กับถนน (on Sukhumvit Road)\n\n✔ คำตอบที่ถูกคือ “on”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• to — to แสดงทิศทาง ไม่ใช่ตำแหน่ง\n• in — in ใช้กับพื้นที่กว้าง เช่น เมือง\n• at — at ใช้กับจุด/ที่อยู่เฉพาะ เช่น at 25 Sukhumvit Road"
+  },
+  {
+   "q": "If it rains tomorrow, we ____ at home.",
+   "choices": [
+    "will stay",
+    "would stay",
+    "stayed",
+    "would have stayed"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: If Type 1: If + V1 (present), will + V1 = เป็นไปได้ในอนาคต\n\n✔ คำตอบที่ถูกคือ “will stay”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• would stay — would ใช้กับ Type 2 (สมมติขัดความจริงปัจจุบัน)\n• stayed — If Type 1 ใช้ will + V1 ในส่วนผลลัพธ์\n• would have stayed — เป็นรูป Type 3 (ขัดอดีต)"
+  },
+  {
+   "q": "If I ____ you, I would study harder.",
+   "choices": [
+    "will be",
+    "am",
+    "were",
+    "had been"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: If Type 2: If + V2 (were), would + V1 — ใช้ were กับทุกประธาน\n\n✔ คำตอบที่ถูกคือ “were”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• will be — ไม่ใช่รูป Type 2\n• am — Type 2 ไม่ใช้ am\n• had been — เป็นรูป Type 3 (ขัดอดีต)"
+  },
+  {
+   "q": "If she had studied harder, she ____ the exam.",
+   "choices": [
+    "passed",
+    "will pass",
+    "would have passed",
+    "would pass"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: If Type 3: If + had + V3, would have + V3 = สมมติขัดความจริงในอดีต\n\n✔ คำตอบที่ถูกคือ “would have passed”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• passed — ไม่มี would/could จึงไม่สมบูรณ์เป็นประโยคเงื่อนไข\n• will pass — เป็นรูป Type 1\n• would pass — เป็นรูป Type 2 ไม่ตรงกับ had studied"
+  },
+  {
+   "q": "____ you hurry, you will miss the bus.",
+   "choices": [
+    "Although",
+    "Unless",
+    "If",
+    "Because"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: Unless = If ... not (Unless you hurry = ถ้าไม่รีบ) → จะพลาดรถบัส\n\n✔ คำตอบที่ถูกคือ “Unless”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Although — แสดงความขัดแย้ง ไม่เหมาะกับความหมายนี้\n• If — If you hurry แปลว่า ถ้าคุณรีบ ความหมายกลับกับประโยค\n• Because — เหตุ-ผล ไม่ใช่เงื่อนไข"
+  },
+  {
+   "q": "If I won the lottery, I ____ a big house.",
+   "choices": [
+    "would have bought",
+    "bought",
+    "would buy",
+    "will buy"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: If + V2, would + V1 (Type 2) = สมมติในปัจจุบัน/อนาคตที่ไม่น่าเกิด\n\n✔ คำตอบที่ถูกคือ “would buy”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• would have bought — เป็นรูป Type 3\n• bought — ไม่มี would จึงไม่ใช่รูปเงื่อนไขที่ถูก\n• will buy — won เป็น V2 จึงต้องใช้ would ไม่ใช่ will"
+  },
+  {
+   "q": "The room ____ every day.",
+   "choices": [
+    "has cleaned",
+    "is cleaned",
+    "is cleaning",
+    "cleans"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: ประธานเป็นสิ่งของ → คิดถึง Passive: be + V3 (is cleaned) + every day = Present Simple\n\n✔ คำตอบที่ถูกคือ “is cleaned”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has cleaned — ประธานเป็นสิ่งของและ every day ไม่ใช่ Present Perfect\n• is cleaning — ห้องไม่ได้ทำความสะอาดตัวเอง และ every day ใช้ Present Simple\n• cleans — ประธานเป็นสิ่งของ ต้องเป็น Passive"
+  },
+  {
+   "q": "The letter ____ by Tom yesterday.",
+   "choices": [
+    "wrote",
+    "is written",
+    "has written",
+    "was written"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: by + ผู้กระทำ แสดง Passive และ yesterday = อดีต → was + V3\n\n✔ คำตอบที่ถูกคือ “was written”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• wrote — Active ใช้ไม่ได้ เพราะมี by Tom\n• is written — yesterday ต้องเป็นอดีต\n• has written — Active/ perfect ไม่ตรงกับ by Tom และ yesterday"
+  },
+  {
+   "q": "A bridge ____ built across the river last year.",
+   "choices": [
+    "was",
+    "has been",
+    "is",
+    "will be"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: Passive อดีต: was/were + V3 และ last year = Past Simple\n\n✔ คำตอบที่ถูกคือ “was”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• has been — last year ไม่ใช้กับ Present Perfect\n• is — last year เป็นอดีต จึงใช้ is ไม่ได้\n• will be — เป็นอนาคต ขัดกับ last year"
+  },
+  {
+   "q": "The work ____ finished soon.",
+   "choices": [
+    "will be",
+    "will",
+    "has been",
+    "was"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: Passive อนาคต: will + be + V3 (It will be finished soon.)\n\n✔ คำตอบที่ถูกคือ “will be”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• will — will ต้องตามด้วย V1 ถ้าจะเป็น Passive ต้องมี be + V3\n• has been — Present Perfect ไม่เข้ากับ soon\n• was — soon เป็นอนาคต ไม่ใช่อดีต"
+  },
+  {
+   "q": "The window ____ by a boy last night.",
+   "choices": [
+    "broke",
+    "has broken",
+    "is broken",
+    "was broken"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: ประธานเป็นสิ่งของ + by + ผู้กระทำ + เวลาอดีต → was + V3\n\n✔ คำตอบที่ถูกคือ “was broken”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• broke — Active ใช้ไม่ได้เมื่อประธานเป็นสิ่งของถูกกระทำ\n• has broken — ผิดทั้งรูปและกาล\n• is broken — last night เป็นอดีต"
+  },
+  {
+   "q": "The man ____ lives next door is a doctor.",
+   "choices": [
+    "whom",
+    "who",
+    "whose",
+    "which"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: who ใช้แทนคนที่เป็นประธาน\n\n✔ คำตอบที่ถูกคือ “who”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• whom — whom เป็นกรรมของคน ไม่ใช่ประธานของ lives\n• whose — whose ต้องตามด้วยนามเพื่อแสดงความเป็นเจ้าของ\n• which — which ใช้กับสิ่งของ/สัตว์"
+  },
+  {
+   "q": "The book ____ I bought yesterday is interesting.",
+   "choices": [
+    "where",
+    "which",
+    "who",
+    "whose"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: which ใช้แทนสิ่งของ (that ก็ได้)\n\n✔ คำตอบที่ถูกคือ “which”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• where — where ใช้กับสถานที่\n• who — who ใช้กับคน\n• whose — whose แสดงความเป็นเจ้าของ"
+  },
+  {
+   "q": "That is the girl ____ father is a pilot.",
+   "choices": [
+    "who",
+    "whom",
+    "whose",
+    "which"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: whose + นาม = ความเป็นเจ้าของ (whose father = พ่อของเธอ)\n\n✔ คำตอบที่ถูกคือ “whose”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• who — who ไม่ใช้นำหน้านามโดยตรงเพื่อแสดงความเป็นเจ้าของ\n• whom — whom เป็นกรรมของคน\n• which — which ใช้กับสิ่งของ"
+  },
+  {
+   "q": "This is the school ____ I studied when I was young.",
+   "choices": [
+    "when",
+    "which",
+    "who",
+    "where"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: where ใช้แทนสถานที่ (the school where = ที่ซึ่ง)\n\n✔ คำตอบที่ถูกคือ “where”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• when — when ใช้กับเวลา\n• which — which ต้องมีกรรมตามหลัง (studied which?) ที่นี่ขาดบุพบท\n• who — who ใช้กับคน"
+  },
+  {
+   "q": "My father, ____ is a teacher, works hard.",
+   "choices": [
+    "who",
+    "which",
+    "whom",
+    "that"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: หลัง comma ห้ามใช้ that และคนที่เป็นประธาน = who\n\n✔ คำตอบที่ถูกคือ “who”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• which — which ใช้กับสิ่งของ ไม่ใช่คน\n• whom — whom เป็นกรรม ไม่ใช่ประธานของ is\n• that — that ห้ามใช้หลัง comma"
+  },
+  {
+   "q": "She enjoys ____ novels in her free time.",
+   "choices": [
+    "read",
+    "to reading",
+    "to read",
+    "reading"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: enjoy, finish, mind, avoid, keep, practice, suggest, consider + V-ing\n\n✔ คำตอบที่ถูกคือ “reading”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• read — ขาดรูป V-ing หลัง enjoy\n• to reading — ไม่มีรูปนี้หลัง enjoy\n• to read — enjoy ตามด้วย V-ing ไม่ใช่ to + V1"
+  },
+  {
+   "q": "He decided ____ abroad after graduation.",
+   "choices": [
+    "studied",
+    "study",
+    "studying",
+    "to study"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: want, need, decide, hope, plan, agree, refuse, promise + to V1\n\n✔ คำตอบที่ถูกคือ “to study”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• studied — กริยาหลังไม่ต้องเป็น V2 เมื่อตามหลัง decide\n• study — ขาด to หลัง decide\n• studying — decide ตามด้วย to + V1"
+  },
+  {
+   "q": "I look forward to ____ you again.",
+   "choices": [
+    "saw",
+    "see",
+    "seeing",
+    "to see"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: look forward to + V-ing (to เป็นบุพบท ไม่ใช่ to + V1)\n\n✔ คำตอบที่ถูกคือ “seeing”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• saw — รูปกริยาไม่ตรง\n• see — to ใน look forward to เป็นบุพบท จึงตามด้วย V-ing\n• to see — ไม่ใช่รูปที่ถูกหลัง look forward to"
+  },
+  {
+   "q": "She is good at ____ .",
+   "choices": [
+    "swam",
+    "swim",
+    "swimming",
+    "to swim"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: หลังบุพบททุกตัวใช้ V-ing (good at swimming, interested in reading)\n\n✔ คำตอบที่ถูกคือ “swimming”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• swam — V2 ใช้หลังบุพบทไม่ได้\n• swim — หลังบุพบทต้องใช้ V-ing\n• to swim — หลังบุพบท at ไม่ใช้ to + V1"
+  },
+  {
+   "q": "He was too tired ____ walk any further.",
+   "choices": [
+    "to",
+    "for",
+    "with",
+    "of"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: too + adj + to + V1 (too tired to walk = เหนื่อยเกินกว่าจะเดิน)\n\n✔ คำตอบที่ถูกคือ “to”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• for — for ไม่ใช้ตามด้วย V1 โดยตรงในโครงสร้างนี้\n• with — with ไม่เข้าโครงสร้างนี้\n• of — of ไม่เข้าโครงสร้างนี้"
+  },
+  {
+   "q": "My mother let me ____ out with my friends.",
+   "choices": [
+    "going",
+    "to go",
+    "went",
+    "go"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: make / let + คน + V1 (ไม่มี to)\n\n✔ คำตอบที่ถูกคือ “go”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• going — let + คน + V1 ไม่ใช่ V-ing\n• to go — let + คน + V1 ไม่มี to\n• went — ต้องเป็น V1 ไม่ใช่ V2"
+  },
+  {
+   "q": "I remember ____ the door, so it must be locked. (จำได้ว่าเคยล็อกแล้ว)",
+   "choices": [
+    "lock",
+    "locked",
+    "locking",
+    "to lock"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: remember + V-ing = จำว่าเคยทำ / remember + to V1 = จำที่จะทำ\n\n✔ คำตอบที่ถูกคือ “locking”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• lock — ขาดรูป V-ing/to V1\n• locked — รูปกริยาไม่ตรง\n• to lock — remember + to V1 = จำที่จะทำ (ยังไม่ได้ทำ)"
+  },
+  {
+   "q": "He stopped ____ because he was tired. (เลิกเดิน)",
+   "choices": [
+    "walk",
+    "walking",
+    "to walk",
+    "walked"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: stop + V-ing = เลิกทำ / stop + to V1 = หยุดเพื่อไปทำ\n\n✔ คำตอบที่ถูกคือ “walking”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• walk — รูปกริยาไม่ตรง\n• to walk — stop + to V1 = หยุดเพื่อไปทำอย่างอื่น (หยุดเพื่อเดิน)\n• walked — รูปกริยาไม่ตรง"
+  },
+  {
+   "q": "He is used to ____ alone.",
+   "choices": [
+    "living",
+    "lived",
+    "to live",
+    "live"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: be used to + V-ing = เคยชิน ส่วน used to + V1 = เคยทำในอดีต\n\n✔ คำตอบที่ถูกคือ “living”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• lived — รูปกริยาไม่ตรง\n• to live — used to + V1 (เคยทำ) ไม่ใช่ be used to\n• live — be used to ตามด้วย V-ing"
+  },
+  {
+   "q": "Mount Everest is ____ mountain in the world.",
+   "choices": [
+    "higher",
+    "the highest",
+    "more high",
+    "the most high"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: คำสั้น: tall–taller–the tallest · high → the highest\n\n✔ คำตอบที่ถูกคือ “the highest”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• higher — เปรียบเทียบกับสิ่งเดียวต้องใช้ขั้นสูงสุด (in the world)\n• more high — คำสั้นต้องเติม -er/-est ไม่ใช้ more/most\n• the most high — ผิดรูปเพราะ high เป็นคำสั้น"
+  },
+  {
+   "q": "This book is ____ than that one.",
+   "choices": [
+    "interestinger",
+    "interesting",
+    "the most interesting",
+    "more interesting"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: คำยาว: more beautiful / the most beautiful\n\n✔ คำตอบที่ถูกคือ “more interesting”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• interestinger — คำยาวใช้ more ไม่เติม -er\n• interesting — ขาดรูปเปรียบเทียบ\n• the most interesting — ขั้นสูงสุดไม่ใช้กับการเทียบสองสิ่งที่มี than"
+  },
+  {
+   "q": "Her English is ____ than mine.",
+   "choices": [
+    "best",
+    "gooder",
+    "better",
+    "more good"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: ผิดปกติ: good–better–best, bad–worse–worst\n\n✔ คำตอบที่ถูกคือ “better”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• best — ขั้นสูงสุดใช้กับ than ไม่ได้\n• gooder — good ผิดปกติ: good–better–best\n• more good — ผิดรูป เพราะมีรูปพิเศษ better"
+  },
+  {
+   "q": "He is as ____ as his brother.",
+   "choices": [
+    "tall",
+    "tallest",
+    "taller",
+    "more tall"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: เท่ากัน: as + adj + as (adj ขั้นปกติ)\n\n✔ คำตอบที่ถูกคือ “tall”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• tallest — as...as ไม่ใช้ขั้นสูงสุด\n• taller — as...as ใช้ adjective ขั้นปกติ\n• more tall — ผิดรูปเปรียบเทียบ"
+  },
+  {
+   "q": "She is a student, ____ ?",
+   "choices": [
+    "won't she",
+    "is she",
+    "isn't she",
+    "doesn't she"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: บอกเล่า → tag ปฏิเสธ และใช้กริยาช่วยตัวเดียวกับประโยคแรก\n\n✔ คำตอบที่ถูกคือ “isn't she”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• won't she — ไม่ตรงกริยาช่วย\n• is she — ประโยคบอกเล่าต้องใช้ tag ปฏิเสธ\n• doesn't she — ต้องใช้กริยาช่วยเดียวกับประโยคหลัก (is)"
+  },
+  {
+   "q": "You don't like coffee, ____ ?",
+   "choices": [
+    "do you",
+    "did you",
+    "don't you",
+    "are you"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: ปฏิเสธ → tag บอกเล่า (don't ... do you?)\n\n✔ คำตอบที่ถูกคือ “do you”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• did you — เป็นอดีต ไม่ตรงกับ don't\n• don't you — ประโยคปฏิเสธต้องใช้ tag บอกเล่า\n• are you — ไม่ตรงกริยาช่วย do"
+  },
+  {
+   "q": "I am late, ____ ?",
+   "choices": [
+    "am I",
+    "aren't I",
+    "don't I",
+    "amn't I"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: I am ... , aren't I? (รูปพิเศษ)\n\n✔ คำตอบที่ถูกคือ “aren't I”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• am I — ประโยคบอกเล่าต้องใช้ tag ปฏิเสธ\n• don't I — ไม่ตรงกริยา am\n• amn't I — ไม่ใช้รูปนี้"
+  },
+  {
+   "q": "Let's go to the market, ____ ?",
+   "choices": [
+    "will you",
+    "do we",
+    "shall we",
+    "don't we"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: Let's ... , shall we?\n\n✔ คำตอบที่ถูกคือ “shall we”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• will you — Let's ใช้ shall we\n• do we — ไม่ใช่ tag ของ Let's\n• don't we — ไม่ใช่ tag ของ Let's"
+  },
+  {
+   "q": "The exam was a piece of cake. I finished it in 20 minutes. หมายความว่า",
+   "choices": [
+    "The exam was boring.",
+    "The exam was very expensive.",
+    "The exam was very easy.",
+    "The exam was made of cake."
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: a piece of cake = ง่ายมาก (อย่าแปลตรงตัว)\n\n✔ คำตอบที่ถูกคือ “The exam was very easy.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• The exam was boring. — ขัดกับ finished in 20 minutes\n• The exam was very expensive. — ไม่เกี่ยวกับความหมาย\n• The exam was made of cake. — แปลตรงตัวเป็นตัวหลอก"
+  },
+  {
+   "q": "At the party, Ann told a joke to break the ice. หมายความว่า เธอ...",
+   "choices": [
+    "went home",
+    "made people angry",
+    "broke some ice on the floor",
+    "made people feel more relaxed"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: break the ice = ทำให้หายเกร็ง ทำให้บรรยากาศผ่อนคลาย\n\n✔ คำตอบที่ถูกคือ “made people feel more relaxed”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• went home — ไม่เกี่ยวกับความหมาย\n• made people angry — ขัดกับบริบทงานปาร์ตี้\n• broke some ice on the floor — แปลตรงตัวเป็นตัวหลอก"
+  },
+  {
+   "q": "I can't go out tonight. I have to hit the books. หมายความว่า",
+   "choices": [
+    "go to the library to sleep",
+    "hit people with books",
+    "study hard",
+    "buy some books"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: hit the books = ตั้งใจอ่านหนังสือ\n\n✔ คำตอบที่ถูกคือ “study hard”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• go to the library to sleep — ไม่ตรง\n• hit people with books — แปลตรงตัว\n• buy some books — ไม่ตรง"
+  },
+  {
+   "q": "She has been feeling blue since her dog died. หมายความว่า",
+   "choices": [
+    "cold",
+    "sad",
+    "angry",
+    "excited"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: feel blue = เศร้า\n\n✔ คำตอบที่ถูกคือ “sad”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• cold — แปลตรงตัวหลอก\n• angry — ไม่ตรงอารมณ์ในเหตุการณ์\n• excited — ขัดกับ dog died"
+  },
+  {
+   "q": "I'm a little under the weather today, so I'll stay in bed. หมายความว่า",
+   "choices": [
+    "very happy",
+    "outside in the rain",
+    "slightly sick",
+    "very busy"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: under the weather = ไม่สบายนิดหน่อย\n\n✔ คำตอบที่ถูกคือ “slightly sick”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• very happy — ขัดกับ stay in bed\n• outside in the rain — แปลตรงตัวเป็นตัวหลอก\n• very busy — ไม่เกี่ยว"
+  },
+  {
+   "q": "That new phone cost an arm and a leg. หมายความว่า",
+   "choices": [
+    "It was very expensive.",
+    "It was broken.",
+    "It was very cheap.",
+    "It was heavy."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: cost an arm and a leg = แพงมาก\n\n✔ คำตอบที่ถูกคือ “It was very expensive.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• It was broken. — ไม่เกี่ยว\n• It was very cheap. — ตรงข้ามกับความหมาย\n• It was heavy. — แปลตรงตัวเป็นตัวหลอก"
+  },
+  {
+   "q": "Don't spill the beans about the surprise party! หมายความว่า",
+   "choices": [
+    "Don't reveal the secret.",
+    "Don't cook beans.",
+    "Don't drop the food.",
+    "Don't invite anyone."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: spill the beans = เปิดเผยความลับ\n\n✔ คำตอบที่ถูกคือ “Don't reveal the secret.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Don't cook beans. — แปลตรงตัว\n• Don't drop the food. — แปลตรงตัว\n• Don't invite anyone. — ไม่เกี่ยว"
+  },
+  {
+   "q": "My brother and I always see eye to eye. หมายความว่า",
+   "choices": [
+    "have bad eyes",
+    "fight often",
+    "look at each other",
+    "agree with each other"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: see eye to eye = เห็นตรงกัน\n\n✔ คำตอบที่ถูกคือ “agree with each other”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• have bad eyes — แปลตรงตัวหลอก\n• fight often — ตรงข้ามกับ always see eye to eye\n• look at each other — แปลตรงตัวหลอก"
+  },
+  {
+   "q": "We only visit our grandparents once in a blue moon. หมายความว่า",
+   "choices": [
+    "only at night",
+    "every month",
+    "very rarely",
+    "every day"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: once in a blue moon = นาน ๆ ครั้ง\n\n✔ คำตอบที่ถูกคือ “very rarely”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• only at night — แปลตรงตัว\n• every month — once in a blue moon นานกว่านั้นมาก\n• every day — ตรงข้ามกับความหมาย"
+  },
+  {
+   "q": "He arrived in the nick of time and caught the train. หมายความว่า",
+   "choices": [
+    "very early",
+    "too late",
+    "with a nick on his hand",
+    "just in time"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: in the nick of time = ทันเวลาพอดี\n\n✔ คำตอบที่ถูกคือ “just in time”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• very early — ไม่ใช่ความหมาย\n• too late — ขัดกับ caught the train\n• with a nick on his hand — แปลตรงตัว"
+  },
+  {
+   "q": "I was so happy when I passed the exam. I was over the moon. หมายความว่า",
+   "choices": [
+    "extremely happy",
+    "sleepy",
+    "worried",
+    "far away"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: on cloud nine / over the moon = ดีใจมาก\n\n✔ คำตอบที่ถูกคือ “extremely happy”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• sleepy — ไม่เกี่ยว\n• worried — ขัดกับ so happy\n• far away — แปลตรงตัว"
+  },
+  {
+   "q": "It's late and we're tired. Let's call it a day. หมายความว่า",
+   "choices": [
+    "Let's call a friend.",
+    "Let's work all night.",
+    "Let's stop working.",
+    "Let's start again."
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: call it a day = พอแค่นี้ เลิกงาน\n\n✔ คำตอบที่ถูกคือ “Let's stop working.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Let's call a friend. — แปลตรงตัว\n• Let's work all night. — ตรงข้าม\n• Let's start again. — ไม่ตรง"
+  },
+  {
+   "q": "My sister is looking ____ her lost keys.",
+   "choices": [
+    "after",
+    "up",
+    "out",
+    "for"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: look for = หา / look after = ดูแล / look up = ค้นหา (ศัพท์)\n\n✔ คำตอบที่ถูกคือ “for”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• after — look after = ดูแล\n• up — look up = ค้นหา (ศัพท์)\n• out — ไม่ได้แปลว่าหาของที่หาย"
+  },
+  {
+   "q": "She stayed at home to look ____ her baby brother.",
+   "choices": [
+    "after",
+    "up",
+    "for",
+    "into"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: look after = ดูแล (= take care of)\n\n✔ คำตอบที่ถูกคือ “after”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• up — look up = ค้นหาในพจนานุกรม\n• for — look for = หา\n• into — look into = ตรวจสอบ"
+  },
+  {
+   "q": "If you don't know this word, look it ____ in the dictionary.",
+   "choices": [
+    "up",
+    "after",
+    "out",
+    "for"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: look up = ค้นหา (ศัพท์)\n\n✔ คำตอบที่ถูกคือ “up”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• after — look after = ดูแล\n• out — look out = ระวัง\n• for — ไม่ตรงกับ look it ... in the dictionary"
+  },
+  {
+   "q": "Don't ____ up! You are almost there.",
+   "choices": [
+    "give",
+    "take",
+    "put",
+    "turn"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: give up = เลิก ยอมแพ้\n\n✔ คำตอบที่ถูกคือ “give”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• take — take up = เริ่มทำ\n• put — put up ไม่ได้แปลว่ายอมแพ้\n• turn — turn up = เพิ่มเสียง/มาถึง"
+  },
+  {
+   "q": "The meeting was put ____ until next Monday.",
+   "choices": [
+    "away",
+    "on",
+    "off",
+    "out"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: put off = เลื่อนออกไป\n\n✔ คำตอบที่ถูกคือ “off”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• away — put away = เก็บ\n• on — put on = สวมใส่\n• out — put out = ดับ"
+  },
+  {
+   "q": "We have run ____ milk. Please buy some.",
+   "choices": [
+    "out of",
+    "up",
+    "over",
+    "into"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: run out of = หมด\n\n✔ คำตอบที่ถูกคือ “out of”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• up — ไม่ใช้ตามด้วย milk โดยตรง\n• over — run over = ทับ\n• into — run into = บังเอิญเจอ"
+  },
+  {
+   "q": "I get ____ well with my classmates.",
+   "choices": [
+    "up",
+    "off",
+    "out",
+    "along"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: get along with = เข้ากันได้ดี\n\n✔ คำตอบที่ถูกคือ “along”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• up — get up = ตื่น/ลุก\n• off — get off = ลงจากรถ\n• out — get out = ออกไป"
+  },
+  {
+   "q": "I came ____ an old photo while cleaning my room.",
+   "choices": [
+    "across",
+    "up",
+    "out",
+    "off"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: come across = บังเอิญเจอ\n\n✔ คำตอบที่ถูกคือ “across”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• up — come up = ขึ้นมา/เกิดขึ้น\n• out — come out = ออกมา\n• off — ไม่ใช่ความหมายนี้"
+  },
+  {
+   "q": "Unlike his timid sister, Tom is brave. What does \"timid\" mean?",
+   "choices": [
+    "clever and kind",
+    "shy and easily frightened",
+    "noisy and funny",
+    "strong and tall"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: Unlike (ต่างจาก) เป็นคำใบ้ตรงข้าม: timid ตรงข้าม brave = ขี้ขลาด/ขี้อาย\n\n✔ คำตอบที่ถูกคือ “shy and easily frightened”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• clever and kind — ไม่ใช่ความหมายตรงข้ามของ brave\n• noisy and funny — ไม่ตรงข้ามกับ brave\n• strong and tall — unlike บอกว่าตรงข้ามกับ brave ไม่เกี่ยวกับร่างกาย"
+  },
+  {
+   "q": "A canine, or dog, is a loyal pet. What does \"canine\" mean?",
+   "choices": [
+    "cat",
+    "dog",
+    "horse",
+    "bird"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: นิยาม: คำสังเกต is, means, or, ( ) – → canine, or dog = canine คือ dog\n\n✔ คำตอบที่ถูกคือ “dog”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• cat — or ตามด้วยคำนิยาม: or dog แปลว่า canine = dog\n• horse — ไม่ตรงกับคำนิยามที่ให้ไว้\n• bird — ไม่ตรงกับคำนิยามที่ให้ไว้"
+  },
+  {
+   "q": "He was exhausted because he ran 10 km. What does \"exhausted\" mean?",
+   "choices": [
+    "very hungry",
+    "very tired",
+    "very happy",
+    "very angry"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: because บอกเหตุ-ผล: วิ่ง 10 กม. ผลคือ exhausted = เหนื่อยมาก\n\n✔ คำตอบที่ถูกคือ “very tired”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• very hungry — ไม่มีเบาะแสเรื่องความหิว\n• very happy — ผลของการวิ่ง 10 กม. ไม่ใช่ความสุข\n• very angry — ไม่มีเบาะแสเรื่องความโกรธ"
+  },
+  {
+   "q": "Citrus fruits such as oranges and lemons are rich in vitamin C. What are \"citrus fruits\"?",
+   "choices": [
+    "fruits like oranges and lemons",
+    "vegetables",
+    "sweet drinks",
+    "kinds of meat"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: such as / for example / including = ยกตัวอย่าง ดูตัวอย่างเพื่อเดาความหมาย\n\n✔ คำตอบที่ถูกคือ “fruits like oranges and lemons”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• vegetables — such as ยกตัวอย่าง oranges, lemons ซึ่งเป็นผลไม้\n• sweet drinks — ไม่ตรงกับตัวอย่าง\n• kinds of meat — ไม่ตรงกับตัวอย่าง"
+  },
+  {
+   "q": "____ it rained heavily, we played football.",
+   "choices": [
+    "Although",
+    "Despite",
+    "In spite of",
+    "Because of"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: although + ประโยค (although it rained) / despite, in spite of + นาม (despite the rain)\n\n✔ คำตอบที่ถูกคือ “Although”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Despite — despite ต้องตามด้วยนาม ไม่ตามด้วยประโยค\n• In spite of — in spite of + นาม ไม่ตามด้วยประโยค\n• Because of — because of + นาม และความหมายเหตุผลไม่เหมาะ"
+  },
+  {
+   "q": "He couldn't go out ____ the heavy rain.",
+   "choices": [
+    "although",
+    "in spite of",
+    "because of",
+    "because"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: because of + นาม (because of the heavy rain) / because + ประโยค\n\n✔ คำตอบที่ถูกคือ “because of”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• although — แสดงความขัดแย้ง ไม่ใช่เหตุผล\n• in spite of — แปลว่า แม้ว่า ขัดกับความหมาย couldn't go out\n• because — because ตามด้วยประโยค ไม่ใช่นาม"
+  },
+  {
+   "q": "Tom wakes up at 6 a.m. every day. He jogs in the park for 30 minutes and then has breakfast with his sister. He takes the bus to school at 7.30.\n\nHow long does Tom jog?",
+   "choices": [
+    "until 7.30",
+    "15 minutes",
+    "one hour",
+    "30 minutes"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: Scan หาคำสำคัญ jogs → for 30 minutes ระวังตัวเลขอื่นในเรื่อง\n\n✔ คำตอบที่ถูกคือ “30 minutes”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• until 7.30 — 7.30 คือเวลาขึ้นรถบัส ไม่ใช่เวลาวิ่ง\n• 15 minutes — ไม่ตรงกับตัวเลขในเรื่อง\n• one hour — ในเรื่องระบุ 30 minutes"
+  },
+  {
+   "q": "Ann is 16. She lives in Chiang Mai with her parents and a younger brother. She likes painting, and her paintings were shown at school last month.\n\nWhich statement is NOT true about Ann?",
+   "choices": [
+    "She has an older brother.",
+    "She lives with her parents.",
+    "She is 16 years old.",
+    "She likes painting."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: ข้อ NOT true: ตรวจทีละช้อยส์ — ในเรื่องเธอมี younger brother ไม่ใช่ older brother\n\n✔ คำตอบที่ถูกคือ “She has an older brother.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• She lives with her parents. — ตรงกับเรื่อง\n• She is 16 years old. — ตรงกับเรื่อง\n• She likes painting. — ตรงกับเรื่อง"
+  },
+  {
+   "q": "My cousins live in Phuket. They run a small hotel there. They are very busy in winter.\n\nWhat does \"They\" in the second sentence refer to?",
+   "choices": [
+    "My cousins",
+    "winter",
+    "Phuket",
+    "a small hotel"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: คำถามอ้างอิง: ย้อนหานามพหูพจน์ก่อนหน้า → My cousins\n\n✔ คำตอบที่ถูกคือ “My cousins”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• winter — winter เป็นเอกพจน์ ไม่ใช่ they\n• Phuket — Phuket เป็นสถานที่ ใช้ They แทนไม่ได้\n• a small hotel — hotel เป็นเอกพจน์ ใช้แทนด้วย it"
+  },
+  {
+   "q": "The library opens at 9 a.m. and closes at 5 p.m. on weekdays. It is closed on Sundays. Students must return books within two weeks.\n\nWhen can students NOT use the library?",
+   "choices": [
+    "At 4 p.m. on Friday",
+    "At 9.30 a.m. on Tuesday",
+    "At noon on Wednesday",
+    "On Sundays"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: Scan ข้อมูลเวลา/วัน: closed on Sundays จึงใช้ไม่ได้วันอาทิตย์\n\n✔ คำตอบที่ถูกคือ “On Sundays”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• At 4 p.m. on Friday — ยังอยู่ในเวลาเปิด\n• At 9.30 a.m. on Tuesday — ห้องสมุดเปิด 9 โมงถึง 5 โมงเย็นในวันธรรมดา\n• At noon on Wednesday — ยังอยู่ในเวลาเปิด"
+  },
+  {
+   "q": "Last Sunday, Peter went to the zoo with his friends. They saw elephants, monkeys and tigers. The monkeys were the funniest, but the tigers were the most frightening. They had lunch at a small restaurant and went home at 4 p.m.\n\nWhich is NOT mentioned in the passage?",
+   "choices": [
+    "They had lunch at a small restaurant.",
+    "The monkeys were the funniest.",
+    "They went home at 4 p.m.",
+    "They rode an elephant."
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: NOT mentioned: ติ๊กช้อยส์ที่เจอในเรื่อง เหลือข้อเดียวที่ไม่มี คือ rode an elephant\n\n✔ คำตอบที่ถูกคือ “They rode an elephant.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• They had lunch at a small restaurant. — มีในเรื่อง\n• The monkeys were the funniest. — มีในเรื่อง\n• They went home at 4 p.m. — มีในเรื่อง"
+  },
+  {
+   "q": "Tom has two sisters, Mary and Jane. Mary is 12 and Jane is 9.\n\nWhich statement is true?",
+   "choices": [
+    "Mary is 9 years old.",
+    "Tom has three sisters.",
+    "Jane is younger than Mary.",
+    "Jane is 12 years old."
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: ระวังช้อยส์ถูกครึ่งเดียว (ชื่อถูกแต่ตัวเลขผิด) — Jane 9 < Mary 12\n\n✔ คำตอบที่ถูกคือ “Jane is younger than Mary.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Mary is 9 years old. — Mary อายุ 12 ปี ชื่อถูกแต่ตัวเลขผิด\n• Tom has three sisters. — ในเรื่อง Tom มีพี่สาว/น้องสาว 2 คน\n• Jane is 12 years old. — Jane อายุ 9 ปี"
+  },
+  {
+   "q": "Many teenagers do not sleep enough. Lack of sleep makes it difficult to concentrate in class and can cause bad moods. Experts say teenagers need about eight to ten hours of sleep each night.\n\nWhat is the main idea?",
+   "choices": [
+    "Teenagers are often in a bad mood.",
+    "Teenagers need enough sleep.",
+    "Sleep is important.",
+    "Experts work with teenagers."
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: กฎ 'ไม่กว้าง ไม่แคบ': Topic = teenagers + sleep, Point = ต้องนอนให้พอ\n\n✔ คำตอบที่ถูกคือ “Teenagers need enough sleep.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Teenagers are often in a bad mood. — แคบเกินไป เป็นรายละเอียดอย่างเดียว\n• Sleep is important. — กว้างเกินไป ไม่เจาะจงวัยรุ่น\n• Experts work with teenagers. — มีคำในเรื่องแต่ไม่ตรงประเด็น"
+  },
+  {
+   "q": "\"Buy now! This is the best phone and it's half price today only.\"\n\nWhat is the writer's purpose?",
+   "choices": [
+    "to entertain",
+    "to instruct",
+    "to inform",
+    "to persuade"
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: โฆษณา, should, best, buy now = to persuade (โน้มน้าว)\n\n✔ คำตอบที่ถูกคือ “to persuade”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• to entertain — ไม่ได้ตั้งใจให้ขำหรือเล่าเรื่อง\n• to instruct — ไม่ใช่ขั้นตอนการทำ\n• to inform — ไม่ใช่การให้ข้อมูลเฉยๆ มีคำชวนซื้อ Buy now"
+  },
+  {
+   "q": "\"First, wash the rice. Then, put it in the pot with water. Finally, cook it for 20 minutes.\"\n\nWhat is the writer's purpose?",
+   "choices": [
+    "to warn",
+    "to instruct",
+    "to entertain",
+    "to persuade"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: ขั้นตอน First... Then... Finally = to instruct (สอนวิธีทำ)\n\n✔ คำตอบที่ถูกคือ “to instruct”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• to warn — ไม่ใช่ข้อห้าม/เตือน\n• to entertain — ไม่ใช่เรื่องเล่าตลก\n• to persuade — ไม่มีคำชวนเชื่อ"
+  },
+  {
+   "q": "\"Do not touch the wires. Danger!\"\n\nWhat is the purpose of this message?",
+   "choices": [
+    "to entertain",
+    "to warn",
+    "to describe",
+    "to advertise"
+   ],
+   "answer": 1,
+   "explain": "📖 เหตุผล: Do not... / Danger! = to warn (เตือน)\n\n✔ คำตอบที่ถูกคือ “to warn”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• to entertain — ไม่ใช่เรื่องสนุก\n• to describe — ไม่ใช่การบรรยายสิ่งของ\n• to advertise — ไม่ได้ขายของ"
+  },
+  {
+   "q": "\"I am so excited! This is the best day of my life, and I can't wait to start my new job!\"\n\nWhat is the tone of the writer?",
+   "choices": [
+    "sarcastic",
+    "worried",
+    "enthusiastic",
+    "objective"
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: คำบวก (so excited, the best, can't wait) = น้ำเสียงเชิงบวก enthusiastic\n\n✔ คำตอบที่ถูกคือ “enthusiastic”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• sarcastic — ไม่ได้ประชดเพราะประโยคตรงไปตรงมา\n• worried — ขัดกับ so excited\n• objective — เป็นความรู้สึกส่วนตัว ไม่เป็นกลาง"
+  },
+  {
+   "q": "\"The report states that 40% of students walk to school and 25% take the bus.\"\n\nWhat is the tone?",
+   "choices": [
+    "objective",
+    "humorous",
+    "sarcastic",
+    "admiring"
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: ข้อมูลตัวเลข ไม่แสดงความเห็น = objective / neutral / informative\n\n✔ คำตอบที่ถูกคือ “objective”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• humorous — ไม่มีมุกตลก\n• sarcastic — ไม่มีคำประชด\n• admiring — ไม่มีการชื่นชม"
+  },
+  {
+   "q": "The sign says \"Staff Only\". What does it mean?",
+   "choices": [
+    "Staff must stay away.",
+    "The shop is closed.",
+    "Everyone can come in.",
+    "Only employees can enter."
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: Staff Only = เฉพาะพนักงาน\n\n✔ คำตอบที่ถูกคือ “Only employees can enter.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Staff must stay away. — ตรงข้าม\n• The shop is closed. — ไม่ใช่ความหมายของป้าย\n• Everyone can come in. — ตรงข้ามกับความหมาย"
+  },
+  {
+   "q": "The machine has a sign \"Out of Order\". What should you do?",
+   "choices": [
+    "Not use it because it is broken.",
+    "Keep it in order.",
+    "Put your coins in quickly.",
+    "Order something from it."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: Out of Order = เสีย ใช้ไม่ได้\n\n✔ คำตอบที่ถูกคือ “Not use it because it is broken.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Keep it in order. — ไม่ใช่ความหมาย\n• Put your coins in quickly. — ขัดกับป้าย\n• Order something from it. — แปลตรงตัวหลอก"
+  },
+  {
+   "q": "A ticket says \"valid until 31 December\". What does it mean?",
+   "choices": [
+    "You must use it before 31 January.",
+    "You can buy it after 31 December.",
+    "It starts on 31 December.",
+    "You can use it up to 31 December."
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: valid until = ใช้ได้ถึง (วันที่ที่ระบุ)\n\n✔ คำตอบที่ถูกคือ “You can use it up to 31 December.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• You must use it before 31 January. — ไม่ตรงวันที่\n• You can buy it after 31 December. — ขัดกับ until\n• It starts on 31 December. — until แปลว่าถึงวันนั้น ไม่ใช่เริ่ม"
+  },
+  {
+   "q": "A: How often do you go to the gym?\nB: ____",
+   "choices": [
+    "By bus.",
+    "Five kilometers.",
+    "Twice a week.",
+    "For two hours."
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: How often = ความถี่ (twice a week) / How long = ระยะเวลา / How far = ระยะทาง\n\n✔ คำตอบที่ถูกคือ “Twice a week.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• By bus. — นั่นตอบ How (วิธีการเดินทาง)\n• Five kilometers. — นั่นตอบ How far\n• For two hours. — นั่นตอบ How long"
+  },
+  {
+   "q": "A: I'm sorry I'm late.\nB: ____",
+   "choices": [
+    "Congratulations!",
+    "You're welcome.",
+    "That's OK.",
+    "I'd love to."
+   ],
+   "answer": 2,
+   "explain": "📖 เหตุผล: ตอบคำขอโทษ: That's OK. / Never mind. / Don't worry.\n\n✔ คำตอบที่ถูกคือ “That's OK.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Congratulations! — ใช้แสดงความยินดี\n• You're welcome. — ใช้ตอบคำขอบคุณ\n• I'd love to. — ใช้ตอบคำเชิญ"
+  },
+  {
+   "q": "A: I passed the exam!\nB: ____",
+   "choices": [
+    "Congratulations!",
+    "Not at all.",
+    "Never mind.",
+    "I'm sorry to hear that."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: ข่าวดี → Congratulations! / Well done!\n\n✔ คำตอบที่ถูกคือ “Congratulations!”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Not at all. — ใช้ตอบ Would you mind...?\n• Never mind. — ใช้ตอบคำขอโทษ\n• I'm sorry to hear that. — ใช้กับข่าวร้าย"
+  },
+  {
+   "q": "A: Would you like to come to my party on Saturday?\nB: ____",
+   "choices": [
+    "Not at all.",
+    "You're welcome.",
+    "Hold on, please.",
+    "I'd love to, but I'm busy."
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: ตอบคำเชิญ: รับ I'd love to. / ปฏิเสธ I'd love to, but I'm busy.\n\n✔ คำตอบที่ถูกคือ “I'd love to, but I'm busy.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Not at all. — ใช้ตอบ Would you mind...?\n• You're welcome. — ใช้ตอบคำขอบคุณ\n• Hold on, please. — ใช้ในการคุยโทรศัพท์"
+  },
+  {
+   "q": "A: Would you mind opening the window?\nB: ____",
+   "choices": [
+    "Not at all.",
+    "Yes, please.",
+    "No, thank you.",
+    "Yes, of course."
+   ],
+   "answer": 0,
+   "explain": "📖 เหตุผล: Would you mind + V-ing? ตอบยินดี: Not at all. / No, of course not. (ตอบ Yes = ไม่โอเค)\n\n✔ คำตอบที่ถูกคือ “Not at all.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• Yes, please. — ไม่เหมาะกับคำถามนี้\n• No, thank you. — ไม่ใช่การตอบรับคำขอ\n• Yes, of course. — Yes = ไม่ยินดี (mind) ความหมายผิด"
+  },
+  {
+   "q": "A: I can swim.\nB: ____",
+   "choices": [
+    "So do I.",
+    "Me neither.",
+    "Neither can I.",
+    "So can I."
+   ],
+   "answer": 3,
+   "explain": "📖 เหตุผล: เห็นด้วยกับประโยคบอกเล่า: So + กริยาช่วย + I (So can I.) ใช้กริยาช่วยตามประโยคแรก\n\n✔ คำตอบที่ถูกคือ “So can I.”\n\n❌ ตัวเลือกอื่นไม่ถูก เพราะ:\n• So do I. — ต้องใช้กริยาช่วยตามประโยคแรก (can)\n• Me neither. — Me neither ใช้กับประโยคปฏิเสธ\n• Neither can I. — Neither ใช้กับประโยคปฏิเสธ"
+  }
+ ]
+}

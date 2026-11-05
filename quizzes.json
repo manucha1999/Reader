@@ -263,5 +263,20 @@
   "subject": "ศาสนาและศีลธรรม",
   "emoji": "🪷",
   "type": "แบบทดสอบ"
+ },
+ {
+  "title": "ShotNote ภาษาอังกฤษ ม.ปลาย",
+  "file": "shotnote-english.pdf",
+  "kind": "pdf",
+  "subject": "ภาษาอังกฤษ",
+  "emoji": "🔤",
+  "type": "ShotNote"
+ },
+ {
+  "title": "ข้อสอบ ภาษาอังกฤษ ม.ปลาย (100 ข้อ)",
+  "file": "quiz-english.json",
+  "subject": "ภาษาอังกฤษ",
+  "emoji": "🔤",
+  "type": "แบบทดสอบ"
  }
 ]
