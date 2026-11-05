@@ -169,7 +169,15 @@ let qz=[];try{qz=JSON.parse(localStorage.getItem('qz')||'[]')}catch(e){}
 const saveQz=()=>ls('qz',JSON.stringify(qz));
 let Q=null;
 async function webQuizzes(){try{const idx=await(await fetch('quizzes.json',{cache:'no-store'})).json();
-  const a=prompt('เลือกที่จะเพิ่ม (พิมพ์เลข)\n'+idx.map((x,i)=>(i+1)+'. '+x.title).join('\n'));const x=idx[(+a)-1];if(!x)return;
+  const x=await new Promise(res=>{const have=new Set([...qz.map(z=>z.name)]);try{(window.__bk||[]).forEach(n=>have.add(n))}catch(_){}
+    const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center';
+    const bx=document.createElement('div');bx.style.cssText='background:#fff;color:#111;width:100%;max-width:560px;max-height:88vh;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:16px 16px 0 0;padding:12px';
+    bx.innerHTML='<div style="font-weight:bold;margin:4px 4px 8px">📥 เลือกที่จะเพิ่ม ('+idx.length+' รายการ)</div>';
+    const done=v=>{o.remove();res(v)};
+    idx.forEach((it,i)=>{const b=document.createElement('button');b.style.cssText='display:block;width:100%;text-align:left;padding:10px;margin:4px 0;border:1px solid #ccd;border-radius:10px;background:#f6f8ff;font-size:15px;color:#111';b.textContent=(i+1)+'. '+(it.emoji||'')+' '+it.title;b.onclick=()=>done(it);bx.appendChild(b)});
+    const c=document.createElement('button');c.textContent='ปิด';c.style.cssText='display:block;width:100%;padding:12px;margin-top:8px;border:0;border-radius:10px;background:#ddd;font-size:15px;color:#111';c.onclick=()=>done(null);bx.appendChild(c);
+    o.appendChild(bx);document.body.appendChild(o);setTimeout(()=>{bx.scrollTop=bx.scrollHeight},50)});
+  if(!x)return;
   if(qz.some(z=>z.name===x.title)||(await all('books')).some(b=>b.name===x.title)){alert('มีรายการนี้ในชั้นแล้ว');return}
   if(x.subject&&!subs.some(y=>y.n===x.subject)){subs.push({n:x.subject,e:x.emoji||'📘'});saveSubs()}
   if(x.kind==='pdf'){const blob=await(await fetch(x.file)).blob();await put('books',{id:Date.now()+Math.random().toString(36).slice(2,6),name:x.title,blob:new Blob([blob],{type:'application/pdf'}),page:1,total:0,added:Date.now(),subject:x.subject||'',type:x.type||''});shelf();return}
