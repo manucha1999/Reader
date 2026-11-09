@@ -121,7 +121,7 @@ let book=null,pdf=null,page=1,zoom=1,dark=false,timer,texts=null,lastSel=null;
 
 async function shelf(){
   $('reader').style.display='none';$('qz').style.display='none';$('shelf').style.display='block';$('title').textContent='📚 '+gt;
-  const gv=view==='grid';$('chips').style.display=gv?'none':'';$('mat').style.display=gv?'block':'none';chips();renderQz();const bs=(await all('books')).sort((a,b)=>b.added-a.added).filter(b=>gv||cur==='all'||(cur==='none'?!b.subject:b.subject===cur));
+  const gv=view==='grid';$('chips').style.display=gv?'none':'';$('mat').style.display=gv?'block':'none';chips();renderQz();const bs=(await all('books')).sort((a,b)=>b.added-a.added).filter(b=>!b.exam).filter(b=>gv||cur==='all'||(cur==='none'?!b.subject:b.subject===cur));
   if(gv)matrix(bs);$('grid').innerHTML=bs.length?'':'<div class="empty">ยังไม่มีหนังสือ กด “เพิ่มหนังสือ” เพื่อเริ่มต้น</div>';
   bs.forEach(b=>{
     const d=document.createElement('div');d.className='book';
@@ -148,7 +148,7 @@ $('file').onchange=async e=>{
 };
 function matrix(bs){const m=$('mat');m.innerHTML='';
   const bar=document.createElement('p');
-  [['+ วิชา (แถว)',newSub],['✎ หัวคอลัมน์',editCols],['📥 ของสำเร็จรูป',webQuizzes]].forEach(([l,f])=>{const b=document.createElement('button');b.textContent=l;b.onclick=f;bar.append(b,' ')});m.appendChild(bar);
+  [['+ วิชา (แถว)',newSub],['✎ หัวคอลัมน์',editCols],['📥 ของสำเร็จรูป',webQuizzes],['📚 ชุดข้อสอบสัสดี',examSets]].forEach(([l,f])=>{const b=document.createElement('button');b.textContent=l;b.onclick=f;bar.append(b,' ')});m.appendChild(bar);
   if(!subs.length){m.insertAdjacentHTML('beforeend','<div class="empty">กด “+ วิชา (แถว)” เพื่อสร้างแถวของตาราง</div>');return}
   const t=document.createElement('table');t.className='mt';
   const hr=t.insertRow();hr.appendChild(document.createElement('th'));types.forEach(x=>{const h=document.createElement('th');h.textContent=x;hr.appendChild(h)});
@@ -168,6 +168,34 @@ $('title').onclick=()=>{if($('shelf').style.display==='none')return;const r=prom
 let qz=[];try{qz=JSON.parse(localStorage.getItem('qz')||'[]')}catch(e){}
 const saveQz=()=>ls('qz',JSON.stringify(qz));
 let Q=null;
+
+async function examSets(){let idx;try{idx=await(await fetch('exams.json',{cache:'no-store'})).json()}catch(e){alert('โหลดรายการไม่ได้ (ต้องต่ออินเทอร์เน็ต)');return}
+  const have=(await all('books')).filter(b=>b.exam);
+  const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center';
+  const bx=document.createElement('div');bx.style.cssText='background:#fff;color:#111;width:100%;max-width:560px;max-height:88vh;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:16px 16px 0 0;padding:12px';
+  bx.innerHTML='<div style="font-weight:bold;margin:4px 4px 8px">📚 ชุดข้อสอบสัสดี ('+idx.length+' ชุด)</div>';
+  idx.forEach(it=>{const h=have.find(b=>b.name===it.title),pct=h&&h.total?Math.round(h.page/h.total*100):0;
+    const row=document.createElement('div');row.style.cssText='border:1px solid #ccd;border-radius:10px;background:#f6f8ff;padding:9px;margin:6px 0';
+    const t=document.createElement('div');t.style.cssText='font-size:15px;font-weight:600;margin-bottom:6px';t.textContent=it.title;row.appendChild(t);
+    const bs='flex:1;padding:10px;border:0;border-radius:8px;font-size:14px;color:#fff;';
+    const bar=document.createElement('div');bar.style.cssText='display:flex;gap:6px';
+    if(it.quiz){const qn=it.title+' (กดตอบ)';const zq=qz.find(z=>z.exam&&z.name===qn);
+      const qb=document.createElement('button');qb.style.cssText=bs+'background:#2e7d32';
+      qb.textContent='📝 กดตอบ'+(it.n?' '+it.n+' ข้อ':'')+(zq&&zq.best!=null?' · ดีสุด '+zq.best:'');
+      qb.onclick=async()=>{const old=qb.textContent;qb.textContent='กำลังเปิด…';try{let z=qz.find(x=>x.exam&&x.name===qn);
+        if(!z){const r=await fetch(it.quiz);if(!r.ok)throw new Error('ไม่พบไฟล์ '+it.quiz);const d=await r.json();
+          z={id:Date.now()+Math.random().toString(36).slice(2,6),name:qn,questions:d.questions,subject:'',type:'',exam:true};qz.push(z);saveQz()}
+        o.remove();openQuiz(z)}catch(e){qb.textContent=old;alert('เปิดไม่ได้: '+((e&&e.message)||e))}};
+      bar.appendChild(qb)}
+    const b=document.createElement('button');b.style.cssText=bs+'background:#3b5bdb';
+    b.textContent='📄 PDF'+(pct?' · '+pct+'%':'');
+    b.onclick=async()=>{b.textContent='กำลังเปิด…';try{let bk=(await all('books')).find(x=>x.exam&&x.name===it.title);
+      if(!bk){const r=await fetch(it.file);if(!r.ok)throw new Error('ไม่พบไฟล์ '+it.file);const blob=await r.blob();
+        bk={id:Date.now()+Math.random().toString(36).slice(2,6),name:it.title,blob:new Blob([blob],{type:'application/pdf'}),page:1,total:0,added:Date.now(),subject:'',type:'',exam:true};await put('books',bk)}
+      o.remove();openBook(bk)}catch(e){b.textContent='📄 PDF';alert('เปิดไม่ได้: '+((e&&e.message)||e))}};
+    bar.appendChild(b);row.appendChild(bar);bx.appendChild(row)});
+  const c=document.createElement('button');c.textContent='ปิด';c.style.cssText='display:block;width:100%;padding:12px;margin-top:8px;border:0;border-radius:10px;background:#ddd;font-size:15px;color:#111';c.onclick=()=>o.remove();bx.appendChild(c);
+  o.appendChild(bx);document.body.appendChild(o)}
 async function webQuizzes(){try{const idx=await(await fetch('quizzes.json',{cache:'no-store'})).json();
   const x=await new Promise(res=>{const have=new Set([...qz.map(z=>z.name)]);try{(window.__bk||[]).forEach(n=>have.add(n))}catch(_){}
     const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center';
@@ -185,7 +213,7 @@ async function webQuizzes(){try{const idx=await(await fetch('quizzes.json',{cach
   qz.push({id:Date.now()+Math.random().toString(36).slice(2,6),name:x.title,questions:d.questions,subject:x.subject||'',type:x.type||''});saveQz();shelf()}
   catch(e){alert('โหลดแบบทดสอบไม่ได้ (ต้องต่ออินเทอร์เน็ต): '+((e&&e.message)||e))}}
 function renderQz(){const o=$('qgrid');o.innerHTML='';
-  qz.filter(z=>view==='grid'||cur==='all'||(cur==='none'?!z.subject:z.subject===cur)).forEach(z=>{
+  qz.filter(z=>!z.exam).filter(z=>view==='grid'||cur==='all'||(cur==='none'?!z.subject:z.subject===cur)).forEach(z=>{
     const d=document.createElement('div');d.className='book';const sj=subs.find(x=>x.n===z.subject);
     d.innerHTML='<b></b><small></small><br><button class="mv">วิชา</button> <button class="rm">ลบ</button>';
     d.querySelector('b').textContent='📝 '+(sj?sj.e+' ':'')+z.name;

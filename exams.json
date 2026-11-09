@@ -1,0 +1,78 @@
+[
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 1",
+  "file": "exam-set1.pdf",
+  "quiz": "exam-quiz-set1.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 2",
+  "file": "exam-set2.pdf",
+  "quiz": "exam-quiz-set2.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 3",
+  "file": "exam-set3.pdf",
+  "quiz": "exam-quiz-set3.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 4",
+  "file": "exam-set4.pdf",
+  "quiz": "exam-quiz-set4.json",
+  "n": 100
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 5",
+  "file": "exam-set5.pdf",
+  "quiz": "exam-quiz-set5.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 6",
+  "file": "exam-set6.pdf",
+  "quiz": "exam-quiz-set6.json",
+  "n": 97
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 7",
+  "file": "exam-set7.pdf",
+  "quiz": "exam-quiz-set7.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 9",
+  "file": "exam-set9.pdf",
+  "quiz": "exam-quiz-set9.json",
+  "n": 99
+ },
+ {
+  "title": "ชุดข้อสอบสัสดี ชุดที่ 10",
+  "file": "exam-set10.pdf",
+  "quiz": "exam-quiz-set10.json",
+  "n": 99
+ },
+ {
+  "title": "ข้อสอบ การปฏิบัติหน้าที่ในสายงานสัสดี (คำสั่ง 29/2517)",
+  "file": "exam-order29.pdf",
+  "quiz": "exam-quiz-order29.json",
+  "n": 98
+ },
+ {
+  "title": "ข้อสอบ พ.ร.บ.กำลังพลสำรอง พ.ศ. 2558",
+  "file": "exam-reserve-act.pdf",
+  "quiz": "exam-quiz-reserve-act.json",
+  "n": 40
+ },
+ {
+  "title": "ข้อสอบ วิชาการเตรียมพล (ฉบับสแกน มีลายมือ)",
+  "file": "exam-preparation.pdf"
+ },
+ {
+  "title": "ข้อสอบ กฎหมายว่าด้วยการรับราชการทหาร (พ.ร.บ. 2497)",
+  "file": "exam-military-law.pdf",
+  "quiz": "exam-quiz-military-law.json",
+  "n": 39
+ }
+]
