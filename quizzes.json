@@ -278,5 +278,13 @@
   "subject": "ภาษาอังกฤษ",
   "emoji": "🔤",
   "type": "แบบทดสอบ"
+ },
+ {
+  "title": "ShotNote กฎหมายรับราชการทหาร (พิชิตสนามสอบ) – พ.ร.บ.+กฎกระทรวง+MoU",
+  "file": "shotnote-military-service-exam-guide.pdf",
+  "kind": "pdf",
+  "subject": "กฎหมายรับราชการทหาร",
+  "emoji": "⚖️",
+  "type": "ShotNote"
  }
 ]
