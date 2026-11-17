@@ -575,7 +575,35 @@ window.APP_CONTENT = {
      "group": "สรุป"
     }
    ],
-   "quizzes": []
+   "quizzes": [
+     {
+      "id": "religion-easy",
+      "title": "ง่าย",
+      "name": "แบบทดสอบศาสนาและศีลธรรม · ง่าย",
+      "group": "แบบทดสอบศาสนาและศีลธรรม",
+      "count": 100,
+      "file": "quiz-religion-easy.js",
+      "labels": "kk"
+     },
+     {
+      "id": "religion-medium",
+      "title": "กลาง",
+      "name": "แบบทดสอบศาสนาและศีลธรรม · กลาง",
+      "group": "แบบทดสอบศาสนาและศีลธรรม",
+      "count": 100,
+      "file": "quiz-religion-medium.js",
+      "labels": "kk"
+     },
+     {
+      "id": "religion-hard",
+      "title": "ยาก",
+      "name": "แบบทดสอบศาสนาและศีลธรรม · ยาก",
+      "group": "แบบทดสอบศาสนาและศีลธรรม",
+      "count": 100,
+      "file": "quiz-religion-hard.js",
+      "labels": "kk"
+     }
+    ]
   }
  ]
 };
