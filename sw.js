@@ -1,6 +1,6 @@
 // ทำให้แอปเปิดได้แม้ไม่มีอินเทอร์เน็ต
 // เมื่อออนไลน์จะโหลดเวอร์ชันล่าสุดเสมอ (เนื้อหาใหม่จึงขึ้นทันที) และเก็บสำเนาไว้ใช้ตอนออฟไลน์
-const CACHE = "sassadee70-v8";
+const CACHE = "sassadee70-v10";
 const CORE = ["./", "./index.html", "./content.js", "./THSarabun.ttf", "./THSarabun-Bold.ttf", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
@@ -32,6 +32,8 @@ self.addEventListener("fetch", (e) => {
   }
 
   if (url.origin !== location.origin) return;
+  // วิดีโอ: ให้เบราว์เซอร์โหลดเอง (รองรับการเลื่อนดู/ไม่เก็บไฟล์ใหญ่ในแคช)
+  if (/\.(mp4|m4v|webm)$/i.test(url.pathname) || req.headers.has("range")) return;
 
   // ไฟล์ของแอป: ลองโหลดจากเน็ตก่อน ถ้าไม่มีเน็ตใช้ของในเครื่อง
   e.respondWith(

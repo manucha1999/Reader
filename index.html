@@ -451,7 +451,7 @@ VIEWS.sums = function(p){
       h += '<div class="card list">';
       gm[g].forEach(function(i){var c=s.chapters[i];
         var d = pr.read && pr.read[i], pg = pr.page && pr.page[i], pt = pr.pages && pr.pages[i];
-        var st = d ? 'อ่านจบแล้ว' : (pg && pt ? 'อ่านถึงหน้า '+th(pg)+' จาก '+th(pt) : 'ยังไม่ได้อ่าน');
+        var st = c.video ? (d ? 'ดูจบแล้ว' : 'ยังไม่ได้ดู') : (d ? 'อ่านจบแล้ว' : (pg && pt ? 'อ่านถึงหน้า '+th(pg)+' จาก '+th(pt) : 'ยังไม่ได้อ่าน'));
         h += '<button class="item" data-a="read" data-b="'+s.id+'" data-c="'+i+'"><span class="n'+(d?' done':'')+'">'+(d?'✓':th(i+1))+'</span><span class="tx"><b>'+esc(c.title)+'</b><span>'+st+'</span></span>'+I.chev+'</button>';
       });
       h += '</div>';
@@ -507,6 +507,7 @@ VIEWS.reader = function(p){
   var b = book(p.id); if(!b){ tab("home"); return; }
   var i = Math.max(0, Math.min(p.ch|0, b.chapters.length-1)), c = b.chapters[i];
   if (c.pdf) return readerPdf(b,i,c);
+  if (c.video) return readerVideo(b,i,c);
   document.documentElement.style.setProperty("--accent", b.color || "");
   S.last = {bookId:b.id, ch:i}; save();
   var right = '<button class="icon-btn" data-a="toc" aria-label="สารบัญ">'+I.toc+'</button><button class="icon-btn" data-a="aa" aria-label="ตั้งค่าตัวอักษร">'+I.aa+'</button>';
@@ -534,6 +535,36 @@ VIEWS.reader = function(p){
   cleanup = function(){ window.removeEventListener("scroll", onScroll); clearTimeout(t); document.documentElement.style.removeProperty("--accent"); };
 };
 
+
+
+/* ---------- Video reader ---------- */
+function readerVideo(b,i,c){
+  document.documentElement.style.setProperty("--accent", b.color || "");
+  S.last = {bookId:b.id, ch:i}; save();
+  var pr = prog(b.id); pr.vt = pr.vt || {};
+  var right = '<button class="icon-btn" data-a="toc" aria-label="สารบัญ">'+I.toc+'</button><button class="icon-btn" data-a="aa" aria-label="ตั้งค่า">'+I.aa+'</button>';
+  var h = topbar('วิดีโอ · '+b.title, {right:right, progress:true});
+  h += '<main><div class="wrap pdfwrap"><h2 class="pt">'+esc(c.title)+'</h2>'
+     + '<video id="vid" controls playsinline preload="metadata" style="width:100%;border-radius:12px;background:#000;max-height:70vh" src="'+esc(c.video)+'"></video>'
+     + '<div class="pmsg" id="vmsg" style="display:none">เปิดวิดีโอไม่ได้ ต้องต่ออินเทอร์เน็ต<br><button class="btn" style="margin-top:12px" data-a="retry-pdf">ลองใหม่</button></div>';
+  if (c.text) h += '<article class="reader card" style="margin-top:16px"><div class="chap-no">สคริปต์คำบรรยาย (อ่านตามได้)</div>'+render(c.text)+'</article>';
+  h += '<div class="chap-nav" style="margin-top:16px">';
+  if (i>0) h += '<button class="btn ghost" data-a="read" data-b="'+b.id+'" data-c="'+(i-1)+'" data-replace="1">‹ ก่อนหน้า</button>';
+  if (i<b.chapters.length-1) h += '<button class="btn" data-a="next" data-b="'+b.id+'" data-c="'+(i+1)+'">ถัดไป ›</button>';
+  h += '</div></div></main>';
+  app.innerHTML = h; window.scrollTo(0,0);
+  var v = document.getElementById("vid"), pl = document.getElementById("pl"), t = null;
+  v.addEventListener("loadedmetadata", function(){ var s = pr.vt[i]||0; if (s>5 && s < v.duration-5) try { v.currentTime = s; } catch(e){} });
+  v.addEventListener("error", function(){ document.getElementById("vmsg").style.display = "block"; });
+  v.addEventListener("timeupdate", function(){
+    var r = v.duration ? v.currentTime/v.duration : 0;
+    if (pl) pl.style.width = (r*100)+"%";
+    clearTimeout(t);
+    t = setTimeout(function(){ pr.vt[i] = v.currentTime; if (r>0.9) pr.read[i] = true; save(); }, 400);
+  });
+  v.addEventListener("ended", function(){ pr.vt[i] = 0; pr.read[i] = true; save(); });
+  cleanup = function(){ try { v.pause(); } catch(e){} clearTimeout(t); document.documentElement.style.removeProperty("--accent"); };
+}
 
 /* ---------- PDF reader ---------- */
 var PDFS = {}, pdfZoom = 1;
