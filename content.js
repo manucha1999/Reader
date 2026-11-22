@@ -15,11 +15,6 @@ window.APP_CONTENT = {
    "icon": "shield",
    "summaries": [
     {
-     "title": "พ.ร.บ.รับราชการทหาร พ.ศ. ๒๔๙๗",
-     "pdf": "shotnote-military-service-act-2497.pdf",
-     "group": "สรุป"
-    },
-    {
      "title": "กฎหมายรับราชการทหาร (พิชิตสนามสอบ) – พ.ร.บ.+กฎกระทรวง+MoU",
      "pdf": "shotnote-military-service-exam-guide.pdf",
      "group": "สรุป"
@@ -35,89 +30,9 @@ window.APP_CONTENT = {
      "group": "สรุป"
     },
     {
-     "title": "ตอนที่ ๑–๒ การลงบัญชีทหารกองเกิน",
-     "pdf": "shotnote-santi-guide-part1-2.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๓ การเรียกคนเข้ากองประจำการ",
-     "pdf": "shotnote-santi-guide-part3.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๔ การยกเว้นและผ่อนผัน",
-     "pdf": "shotnote-santi-guide-part4.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๕ การตรวจเลือกคนเข้ากองประจำการ",
-     "pdf": "shotnote-santi-guide-part5.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๖ ทะเบียนกองประจำการ",
-     "pdf": "shotnote-santi-guide-part6.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๗ การปลด จำหน่าย และย้ายภูมิลำเนาทหาร",
-     "pdf": "shotnote-santi-guide-part7.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๘ การควบคุมทหารกองเกินและทหารกองหนุน",
-     "pdf": "shotnote-santi-guide-part8.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตอนที่ ๙ ทหารกองประจำการลาและขาดหนีราชการ",
-     "pdf": "shotnote-santi-guide-part9.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
-     "title": "ตัวเล่มเต็ม (ฉบับปรับปรุงใหม่ ๒๕๖๑)",
-     "pdf": "santi-guide-2529.pdf",
-     "group": "คำแนะนำสัสดี ๒๕๒๙"
-    },
-    {
      "title": "สรุปกำลังพลสำรอง + การเตรียมพล (พ.ร.บ.๒๕๕๘ · ระเบียบ ๒๕๕๙ · ข้อบังคับ ๒๕๑๕ · ระเบียบ ทบ.๒๕๓๑)",
      "pdf": "shotnote-reserve-mobilization-summary.pdf",
      "group": "สรุป"
-    },
-    {
-     "title": "พ.ร.บ.กำลังพลสำรอง พ.ศ. ๒๕๕๘",
-     "pdf": "shotnote-reserve-act-2558.pdf",
-     "group": "สรุป"
-    },
-    {
-     "title": "กฎกระทรวงกิจการกำลังพลสำรอง ๒๕๕๙",
-     "pdf": "shotnote-reserve-ministerial-reg.pdf",
-     "group": "สรุป"
-    },
-    {
-     "title": "ข้อบังคับ กห. ว่าด้วยกิจการกำลังพลสำรอง ๒๕๕๙",
-     "pdf": "shotnote-reserve-mod-regulation.pdf",
-     "group": "สรุป"
-    },
-    {
-     "title": "ระเบียบ ทบ. ว่าด้วยการเรียกกำลังพลสำรองเข้ารับราชการทหาร ๒๕๖๐",
-     "pdf": "shotnote-reserve-army-regulation.pdf",
-     "group": "สรุป"
-    },
-    {
-     "title": "กฎกระทรวงกิจการกำลังพลสำรอง พ.ศ. ๒๕๕๙",
-     "pdf": "reserve-ministerial-reg-2559.pdf",
-     "group": "ต้นฉบับ"
-    },
-    {
-     "title": "ข้อบังคับ กห. ว่าด้วยกิจการกำลังพลสำรอง พ.ศ. ๒๕๕๙",
-     "pdf": "reserve-mod-regulation-2559.pdf",
-     "group": "ต้นฉบับ"
-    },
-    {
-     "title": "ระเบียบ ทบ. ว่าด้วยการเรียกกำลังพลสำรองเข้ารับราชการทหาร พ.ศ. ๒๕๖๐",
-     "pdf": "reserve-army-regulation-2560.pdf",
-     "group": "ต้นฉบับ"
     },
     {
      "title": "วิดีโอ: กฎหมายรับราชการทหาร ตอนที่ 1 – พ.ร.บ. (มาตรา ๑–๕๑)",
@@ -600,34 +515,34 @@ window.APP_CONTENT = {
     }
    ],
    "quizzes": [
-     {
-      "id": "religion-easy",
-      "title": "ง่าย",
-      "name": "แบบทดสอบศาสนาและศีลธรรม · ง่าย",
-      "group": "แบบทดสอบศาสนาและศีลธรรม",
-      "count": 100,
-      "file": "quiz-religion-easy.js",
-      "labels": "kk"
-     },
-     {
-      "id": "religion-medium",
-      "title": "กลาง",
-      "name": "แบบทดสอบศาสนาและศีลธรรม · กลาง",
-      "group": "แบบทดสอบศาสนาและศีลธรรม",
-      "count": 100,
-      "file": "quiz-religion-medium.js",
-      "labels": "kk"
-     },
-     {
-      "id": "religion-hard",
-      "title": "ยาก",
-      "name": "แบบทดสอบศาสนาและศีลธรรม · ยาก",
-      "group": "แบบทดสอบศาสนาและศีลธรรม",
-      "count": 100,
-      "file": "quiz-religion-hard.js",
-      "labels": "kk"
-     }
-    ]
+    {
+     "id": "religion-easy",
+     "title": "ง่าย",
+     "name": "แบบทดสอบศาสนาและศีลธรรม · ง่าย",
+     "group": "แบบทดสอบศาสนาและศีลธรรม",
+     "count": 100,
+     "file": "quiz-religion-easy.js",
+     "labels": "kk"
+    },
+    {
+     "id": "religion-medium",
+     "title": "กลาง",
+     "name": "แบบทดสอบศาสนาและศีลธรรม · กลาง",
+     "group": "แบบทดสอบศาสนาและศีลธรรม",
+     "count": 100,
+     "file": "quiz-religion-medium.js",
+     "labels": "kk"
+    },
+    {
+     "id": "religion-hard",
+     "title": "ยาก",
+     "name": "แบบทดสอบศาสนาและศีลธรรม · ยาก",
+     "group": "แบบทดสอบศาสนาและศีลธรรม",
+     "count": 100,
+     "file": "quiz-religion-hard.js",
+     "labels": "kk"
+    }
+   ]
   }
  ]
 };
