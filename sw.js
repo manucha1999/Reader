@@ -1,6 +1,6 @@
 // ทำให้แอปเปิดได้แม้ไม่มีอินเทอร์เน็ต
 // เมื่อออนไลน์จะโหลดเวอร์ชันล่าสุดเสมอ (เนื้อหาใหม่จึงขึ้นทันที) และเก็บสำเนาไว้ใช้ตอนออฟไลน์
-const CACHE = "sassadee70-v12";
+const CACHE = "sassadee70-v13";
 const CORE = ["./", "./index.html", "./content.js", "./THSarabun.ttf", "./THSarabun-Bold.ttf", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
