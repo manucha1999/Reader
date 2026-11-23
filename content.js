@@ -419,6 +419,11 @@ window.APP_CONTENT = {
      "title": "ภาษาอังกฤษพื้นฐานสำหรับกำลังพล (๑๒ เรื่อง)",
      "pdf": "english-basic-summary.pdf",
      "group": "สรุป"
+    },
+    {
+     "title": "ภาษาอังกฤษพื้นฐาน ม.ปลาย – ศัพท์ สำนวน ไวยากรณ์ · อ่านเข้าใจ · จับใจความ · บทสนทนา",
+     "pdf": "english-hs-summary.pdf",
+     "group": "สรุป"
     }
    ],
    "quizzes": [
