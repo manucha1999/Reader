@@ -552,6 +552,33 @@ window.APP_CONTENT = {
      "count": 52,
      "file": "quiz-eng-bank-13.js",
      "labels": "num"
+    },
+    {
+     "id": "enghs-easy",
+     "title": "ง่าย",
+     "name": "ภาษาอังกฤษพื้นฐาน ม.ปลาย · ง่าย",
+     "group": "ภาษาอังกฤษพื้นฐาน ม.ปลาย",
+     "count": 60,
+     "file": "quiz-enghs-easy.js",
+     "labels": "kk"
+    },
+    {
+     "id": "enghs-medium",
+     "title": "กลาง",
+     "name": "ภาษาอังกฤษพื้นฐาน ม.ปลาย · กลาง",
+     "group": "ภาษาอังกฤษพื้นฐาน ม.ปลาย",
+     "count": 60,
+     "file": "quiz-enghs-medium.js",
+     "labels": "kk"
+    },
+    {
+     "id": "enghs-hard",
+     "title": "ยาก",
+     "name": "ภาษาอังกฤษพื้นฐาน ม.ปลาย · ยาก",
+     "group": "ภาษาอังกฤษพื้นฐาน ม.ปลาย",
+     "count": 60,
+     "file": "quiz-enghs-hard.js",
+     "labels": "kk"
     }
    ]
   },
