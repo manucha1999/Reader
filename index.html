@@ -280,6 +280,7 @@ h2.sec{font-size:16px}
 .xsub{margin-bottom:10px}
 .choice.sel{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card))}
 .choice.sel .k{background:var(--accent);color:#fff}
+.xsec{grid-column:1/-1;font-weight:700;font-size:.9rem;margin:8px 0 0;color:var(--muted,#888)}
 .xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:8px;max-height:55vh;overflow:auto;padding:2px}
 .xg{height:42px;border-radius:10px;border:2px solid var(--line);background:var(--card);font-weight:600;font-size:15px}
 .xg.on{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -846,11 +847,12 @@ VIEWS.review = function(p){
 
 /* ---------- ลองสอบจริง (exam mode) ---------- */
 var ex = null, exTimer = null;
-var SUBJ_ORDER = ["สัสดี","ภาษาไทย","ภาษาอังกฤษ","ศาสนาศีลธรรม"];
+var SUBJ_ORDER = ["สัสดี","ภาษาอังกฤษ","ภาษาไทย","ศาสนาศีลธรรม"];
 function fmtLeft(s){ s=Math.max(0,s|0); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+":":"")+(h&&m<10?"0":"")+m+":"+(x<10?"0":"")+x; }
 function exSave(){ if (!ex) return; if (!S.exam) S.exam={}; S.exam[ex.def.id] = {ans:ex.ans.slice(), i:ex.i, left:ex.left}; save(); }
 function startExam(b, q, fresh){
   var st = S.exam && S.exam[q.id];
+  if (st && st.ans && st.ans.length !== q.questions.length){ delete S.exam[q.id]; save(); st = null; }
   if (st && !fresh){
     var n = st.ans.filter(function(a){ return a!=null; }).length;
     modal('<h3>ทำต่อจากเดิมไหม?</h3><p>'+esc(q.name||q.title)+' ตอบไปแล้ว '+th(n)+' ข้อ · เหลือเวลา '+fmtLeft(st.left)+'</p><div class="row-btns"><button class="btn ghost" data-m="new">เริ่มใหม่</button><button class="btn" data-m="go">ทำต่อ</button></div>', function(m, close){
@@ -913,7 +915,7 @@ function exPick(i){
 }
 function exGrid(){
   var n = ex.qs.length, done = ex.ans.filter(function(a){ return a!=null; }).length, g = '';
-  ex.qs.forEach(function(Q,k){ g += '<button class="xg'+(ex.ans[k]!=null?' on':'')+(k===ex.i?' cur':'')+'" data-a="xjump" data-n="'+k+'">'+th(k+1)+'</button>'; });
+  ex.qs.forEach(function(Q,k){ if (Q.sub && (k===0 || ex.qs[k-1].sub!==Q.sub)) g += '<div class="xsec">'+esc(Q.sub)+'</div>'; g += '<button class="xg'+(ex.ans[k]!=null?' on':'')+(k===ex.i?' cur':'')+'" data-a="xjump" data-n="'+k+'">'+th(k+1)+'</button>'; });
   openPanel('<label>ตอบแล้ว '+th(done)+' / '+th(n)+' ข้อ · เหลือเวลา '+fmtLeft(ex.left)+'</label><div class="xgrid">'+g+'</div><button class="btn block" style="margin-top:14px" data-a="xsubmit">ส่งคำตอบ</button>');
 }
 function exSubmit(){

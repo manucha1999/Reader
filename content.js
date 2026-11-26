@@ -653,7 +653,7 @@ window.APP_CONTENT = {
    "color": "#d6336c",
    "icon": "timer",
    "mock": true,
-   "intro": "<b>ข้อสอบเสมือนจริง ๑๐ ชุด ไม่ซ้ำกัน</b><br>ชุดละ ๑๐๐ ข้อ คละ ๔ วิชา: สัสดี ๒๕ · ภาษาไทย ๒๕ · ภาษาอังกฤษ ๒๕ · ศาสนาศีลธรรม ๒๕<br>เวลา ๑๒๐ นาที · เลือกตอบ เปลี่ยน หรือข้ามได้ แล้วกด <b>ส่งคำตอบ</b><br>หลังส่งจะเห็นคะแนนรวม คะแนนแยกวิชา และเฉลยข้อที่ผิดพร้อมเหตุผล<br>ออกกลางคันได้ ระบบจำคำตอบและเวลาที่เหลือไว้",
+   "intro": "<b>ข้อสอบเสมือนจริง ๑๐ ชุด ไม่ซ้ำกัน</b><br>ชุดละ ๑๗๕ ข้อ เรียงวิชาดังนี้<br>① สัสดี ๑๐๐ ข้อ (ข้อ ๑–๑๐๐ คละทุกเรื่อง)<br>② ภาษาอังกฤษ ๒๕ ข้อ (ข้อ ๑๐๑–๑๒๕)<br>③ ภาษาไทย ๒๕ ข้อ (ข้อ ๑๒๖–๑๕๐)<br>④ ศาสนาศีลธรรม ๒๕ ข้อ (ข้อ ๑๕๑–๑๗๕)<br>เวลา ๒๑๐ นาที · เลือกตอบ เปลี่ยน หรือข้ามได้ แล้วกด <b>ส่งคำตอบ</b><br>หลังส่งจะเห็นคะแนนรวม คะแนนแยกวิชา และเฉลยข้อที่ผิดพร้อมเหตุผล<br>ออกกลางคันได้ ระบบจำคำตอบและเวลาที่เหลือไว้",
    "summaries": [],
    "quizzes": [
     {
@@ -662,11 +662,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๑",
      "name": "ลองสอบจริง ชุดที่ ๑",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-1.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-2",
@@ -674,11 +674,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๒",
      "name": "ลองสอบจริง ชุดที่ ๒",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-2.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-3",
@@ -686,11 +686,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๓",
      "name": "ลองสอบจริง ชุดที่ ๓",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-3.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-4",
@@ -698,11 +698,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๔",
      "name": "ลองสอบจริง ชุดที่ ๔",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-4.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-5",
@@ -710,11 +710,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๕",
      "name": "ลองสอบจริง ชุดที่ ๕",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-5.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-6",
@@ -722,11 +722,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๖",
      "name": "ลองสอบจริง ชุดที่ ๖",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-6.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-7",
@@ -734,11 +734,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๗",
      "name": "ลองสอบจริง ชุดที่ ๗",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-7.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-8",
@@ -746,11 +746,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๘",
      "name": "ลองสอบจริง ชุดที่ ๘",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-8.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-9",
@@ -758,11 +758,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๙",
      "name": "ลองสอบจริง ชุดที่ ๙",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-9.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     },
     {
      "id": "mock-10",
@@ -770,11 +770,11 @@ window.APP_CONTENT = {
      "title": "ชุดที่ ๑๐",
      "name": "ลองสอบจริง ชุดที่ ๑๐",
      "group": "ข้อสอบเสมือนจริง",
-     "count": 100,
+     "count": 175,
      "file": "quiz-mock-10.js",
      "labels": "kk",
      "exam": true,
-     "minutes": 120
+     "minutes": 210
     }
    ]
   }
