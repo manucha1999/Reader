@@ -832,7 +832,7 @@ VIEWS.result = function(p){
 VIEWS.review = function(p){
   var r = findResult(p.id); if(!r){ back(); return; }
   var h = topbar(r.wrongOnly ? "ข้อที่ตอบผิด" : "เฉลย") + '<main><div class="wrap">';
-  h += '<p style="margin:0;font-weight:600">'+esc(r.quizTitle)+'</p><p class="sub" style="margin-bottom:14px">ได้ '+th(r.score+'/'+r.total)+' คะแนน · '+fmtDate(r.date)+'</p><div class="card review">';
+  h += '<p style="margin:0;font-weight:600">'+esc(r.quizTitle)+'</p><p class="sub" style="margin-bottom:14px">ได้ '+th(r.score+'/'+r.total)+' คะแนน · '+fmtDate(r.date)+'</p>'+(r.parts?partsHtml(r)+'<div style="height:14px"></div>':'')+'<div class="card review">';
   if (r.wrongOnly && !r.details.length) h += '<div class="rq"><p>ถูกทุกข้อ ไม่มีข้อที่ตอบผิด</p></div>';
   r.details.forEach(function(d,k){
     h += '<div class="rq"><p>'+(r.wrongOnly?'ข้อ '+th(d.no):(k+1))+'. '+inline(d.q)+'</p>';
@@ -955,10 +955,31 @@ function mockItem(b, q){
   var sub = th(qCount(q))+' ข้อ · '+th(q.minutes||120)+' นาที' + (st ? ' · <b style="display:inline;color:var(--accent);font-weight:600">ทำค้างไว้ เหลือ '+fmtLeft(st.left)+'</b>' : '') + (n?' · ทำแล้ว '+th(n)+' ครั้ง':'');
   return '<button class="item" data-a="quiz" data-b="'+b.id+'" data-q="'+q.id+'"><span class="n'+(bs?' done':'')+'">'+(bs?'✓':th(q.no||''))+'</span><span class="tx"><b>'+esc(q.title)+'</b><span>'+sub+'</span></span>'+right+'</button>';
 }
+VIEWS.mockhist = function(p){
+  var rs = S.results.filter(function(r){ return r.bookId===p.id; }).slice().reverse();
+  var h = topbar("ประวัติลองสอบจริง") + '<main><div class="wrap">';
+  if (!rs.length){ h += '<div class="empty">ยังไม่มีประวัติการสอบ<br>เลือกชุดข้อสอบแล้วกด "เริ่มสอบ"</div>'; }
+  else {
+    h += '<p class="sub" style="margin:0 0 12px">กดรายการเพื่อดูข้อที่ตอบผิดพร้อมเฉลย</p><div class="card list">';
+    rs.forEach(function(r){
+      var pr = '';
+      if (r.parts){
+        var keys = Object.keys(r.parts).sort(function(a,b){ var i=SUBJ_ORDER.indexOf(a), j=SUBJ_ORDER.indexOf(b); return (i<0?9:i)-(j<0?9:j); });
+        pr = keys.map(function(k){ var v=r.parts[k]; return esc(k.replace("ภาษา","").replace("ศีลธรรม",""))+' '+th(v.s+'/'+v.t); }).join(' · ');
+      }
+      h += '<button class="item" data-a="review" data-r="'+r.id+'"><span class="tx"><b>'+esc(r.quizTitle)+'</b><span style="display:block">'+fmtDate(r.date)+(r.used?' · ใช้เวลา '+fmtLeft(r.used):'')+'</span>'+(pr?'<span style="display:block">'+pr+'</span>':'')+'</span><span class="score-chip '+chipClass(pct(r))+'">'+th(r.score+'/'+r.total)+'</span></button>';
+    });
+    h += '</div>';
+  }
+  h += '</div></main>';
+  app.innerHTML = h;
+};
 function mockPage(s){
   var h = topbar(s.title) + '<main><div class="wrap">';
   h += '<div class="subj-hero" style="--c:'+esc(s.color)+'"><span class="ic">'+(SUBJ_ICON[s.icon]||"")+'</span><div><small>ข้อสอบเสมือนจริง</small><h2>'+esc(s.title)+'</h2></div></div>';
   h += '<div class="card" style="padding:16px 18px;margin-bottom:18px;line-height:1.6">'+(s.intro||'')+'</div>';
+  var nh = S.results.filter(function(r){ return r.bookId===s.id; }).length;
+  h += '<button class="btn ghost block" style="margin-bottom:18px" data-a="mockhist" data-b="'+esc(s.id)+'">ประวัติการสอบ'+(nh?' ('+th(nh)+' ครั้ง)':'')+'</button>';
   h += '<div class="card list">'; (s.quizzes||[]).forEach(function(q){ h += mockItem(s,q); }); h += '</div>';
   h += '</div></main>';
   app.innerHTML = h;
@@ -1036,6 +1057,7 @@ function handle(e){
     case "nextq": if (quiz.i < quiz.qs.length-1){ quiz.i++; quiz.picked=null; show(); window.scrollTo(0,0); } else finishQuiz(); break;
     case "quit": confirmBox("ออกจากแบบทดสอบ?", quiz && !quiz.def.shuffle ? "ระบบจำไว้ว่าทำถึงข้อไหน กลับมาทำต่อได้ภายหลัง" : "คำตอบที่ทำไว้จะไม่ถูกบันทึก", "ออก", function(){ quiz=null; if (stack.length>1) back(); else tab("home"); }); break;
     case "review": go("review", {id:d.r}); break;
+    case "mockhist": go("mockhist", {id:d.b}); break;
     case "xpick": if (ex) exPick(+d.i); break;
     case "xmove": if (ex){ ex.i = Math.max(0, Math.min(ex.qs.length-1, ex.i + (+d.d))); exSave(); show(); } break;
     case "xgrid": if (ex) exGrid(); break;
